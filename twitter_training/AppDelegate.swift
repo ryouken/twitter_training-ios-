@@ -15,6 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        //ページコントロールのカラーを変更する。
+        let pageControl = UIPageControl.appearance()
+        pageControl.backgroundColor = UIColor.whiteColor()
+        pageControl.pageIndicatorTintColor = UIColor.blueColor()
+        pageControl.currentPageIndicatorTintColor = UIColor.greenColor()
+        
         // Override point for customization after application launch.
         return true
     }
