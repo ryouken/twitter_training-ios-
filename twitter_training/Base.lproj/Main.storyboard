@@ -57,16 +57,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wGJ-l9-mCl">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="password" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wGJ-l9-mCl">
                                 <rect key="frame" x="112" y="311" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4y-ol-NSc">
                                 <rect key="frame" x="231" y="381" width="60" height="30"/>
                                 <state key="normal" title="ログイン"/>
+                                <connections>
+                                    <action selector="nextButton:" destination="ZP6-u0-J7m" eventType="touchUpInside" id="aPB-r3-8L2"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4H5-Xy-Ygz">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="email" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4H5-Xy-Ygz">
                                 <rect key="frame" x="105" y="192" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -77,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5jT-LU-QFF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="504" y="778"/>
+            <point key="canvasLocation" x="469" y="771"/>
         </scene>
         <!--Register Page View Controller-->
         <scene sceneID="sdD-8R-ZAm">
@@ -85,7 +88,7 @@
                 <pageViewController storyboardIdentifier="RegisterPage" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="aDm-8D-7U2" customClass="RegisterPageViewController" customModule="twitter_training" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DQs-Vx-3WI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="878" y="770"/>
+            <point key="canvasLocation" x="469" y="93"/>
         </scene>
         <!--Register First View Controller-->
         <scene sceneID="nx2-e0-tV4">
@@ -115,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x3g-TR-SLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="504" y="56"/>
+            <point key="canvasLocation" x="810" y="93"/>
         </scene>
         <!--Register Second View Controller-->
         <scene sceneID="5wd-ih-ffq">
@@ -143,7 +146,7 @@
                                 <rect key="frame" x="253" y="398" width="30" height="30"/>
                                 <state key="normal" title="登録"/>
                                 <connections>
-                                    <action selector="nextButton:" destination="xQb-CX-bvh" eventType="touchUpInside" id="HkS-ve-w19"/>
+                                    <action selector="nextButton:" destination="xQb-CX-bvh" eventType="touchUpInside" id="fjp-p5-BhK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -152,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="74P-e9-zgx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="878" y="56"/>
+            <point key="canvasLocation" x="1151" y="93"/>
         </scene>
         <!--User List View Controller-->
         <scene sceneID="zEF-kd-QaK">
@@ -166,31 +169,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" selectionStyle="default" indentationWidth="10" rowHeight="459" translatesAutoresizingMaskIntoConstraints="NO" id="BYL-LR-07o">
-                                <rect key="frame" x="0.0" y="101" width="320" height="459"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BYL-LR-07o" id="ODk-tu-5UF">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="458.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.67734604988201519" green="1" blue="0.70999750940543982" alpha="1" colorSpace="calibratedRGB"/>
-                            </tableViewCell>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUL-Ne-gcn">
-                                <rect key="frame" x="105" y="42" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cE-p8-Ug2">
+                                <rect key="frame" x="137" y="77" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="tapBtn:" destination="D5g-h8-dLM" eventType="touchUpInside" id="MdK-dE-r2q"/>
+                                    <action selector="button:" destination="D5g-h8-dLM" eventType="touchUpInside" id="1i7-k9-DOL"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dyQ-OW-myG">
+                                <rect key="frame" x="13" y="175" width="307" height="393"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="myTextView" destination="BYL-LR-07o" id="V55-oo-xBP"/>
+                        <outlet property="tableView" destination="dyQ-OW-myG" id="a3y-u3-tPo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="itI-qk-lGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1234" y="56"/>
+            <point key="canvasLocation" x="1608" y="409"/>
         </scene>
     </scenes>
 </document>

@@ -1,49 +1,49 @@
 import UIKit
+import Alamofire
 import SwiftyJSON
 
-class UserListViewController: UIViewController {
+class UserListViewController: UIViewController, UITableViewDataSource {
+    var users: [[String: String?]] = []
     
-//    
-//    @IBOutlet weak var myTextView: UITableViewCell!
-//    
-//    @IBAction func tapBtn(sender: AnyObject) {
-//        let URLstr = "http://express.heartrails.com/api/json?method=getStations&line=JR山手線"
-//        // 日本語入りのURLなので、UTF8形式に変換する
-//        let encodeURL:String = URLstr.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-//        if let url = NSURL(string: encodeURL) {
-//            let request = NSURLRequest(URL: url)
-//            // データの読み込みが終わったら dispStationsを実行
-//            NSURLConnection.sendAsynchronousRequest(
-//                request,
-//                queue: .mainQueue(),
-//                completionHandler: dispStations)
-//        }
-//    }
-//    // 表示するメッセージを入れる変数
-//    var msg:String = ""
-//    // 返ってきたJSONデータを解析して駅名表示
-//    func dispStations(res: NSURLResponse?, data: NSData?, error: NSError?){
-//        if error == nil {
-//            // JSONデータに変換する
-//            let json = JSON(data:data!)
-//            // 路線名を取得
-//            let linename = json["response"]["station"][0]["line"]
-//            msg += "路線名=\(linename)\n"
-//            // 路線内の各駅名を取得
-//            let linedata = json["response"]["station"]
-//            for id in 0..<linedata.count {
-//                let name = linedata[id]["name"]
-//                msg += "駅[\(id)]=\(name)\n"
-//            }
-//            // 駅名リストを表示
-//            myTextView.textLabel!.text = msg        }
-//    }
-
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBAction func button(sender: AnyObject) {
+        tableView.dataSource = self
+        getUsers()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-   }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    }
+    
+    func getUsers() {
+        Alamofire.request(.GET, "http://localhost:9000/json/user/list")
+            .responseJSON { response in
+                guard let object = response.result.value else {
+                    return
+                }
+                let json = JSON(object)
+                json.forEach { (_, json) in
+                    json.forEach { (_, user) in
+                    let user: [String: String?] = [
+                        "user_name": user["user_name"].string,
+                    ]
+                    self.users.append(user)
+                    }
+                }
+                self.tableView.reloadData()
+        }
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return users.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cell")
+        let user = users[indexPath.row]
+        cell.textLabel?.text = user["user_name"]!
+        return cell
     }
 }
