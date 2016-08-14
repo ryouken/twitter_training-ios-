@@ -11,6 +11,12 @@ class UserListViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
         getUsers()
     }
+    @IBAction func tweetButton(sender: AnyObject) {
+        // ツイートページの画面遷移
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextVC = storyboard.instantiateViewControllerWithIdentifier("Tweet") as! TweetViewController
+        self.presentViewController(nextVC, animated: true, completion: nil)
+    }
     
     
     override func viewDidLoad() {
@@ -32,7 +38,7 @@ class UserListViewController: UIViewController, UITableViewDataSource {
                     self.users.append(user)
                     }
                 }
-                self.tableView.reloadData()
+            self.tableView.reloadData()
         }
     }
     

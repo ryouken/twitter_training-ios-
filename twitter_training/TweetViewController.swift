@@ -2,19 +2,16 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-class LoginViewController: UIViewController {
-    
-    @IBOutlet weak var emailText: UITextField!
-    @IBOutlet weak var passwordText: UITextField!
-    
-    @IBAction func nextButton(sender: AnyObject) {
-        let email: String = emailText.text!
-        let password: String = passwordText.text!
+class TweetViewController: UIViewController {
+
+    @IBOutlet weak var tweetText: UITextField!
+    @IBAction func tweetButton(sender: AnyObject) {
+        let tweet_text = tweetText.text!
         
-        let json = ["email": email, "password": password]
+        let json = ["tweet_id": 0, "tweet_text": tweet_text]
         print(json)
         
-        Alamofire.request(.POST, "http://localhost:9000/json/user/authenticate", parameters: json, encoding: .JSON)
+        Alamofire.request(.POST, "http://localhost:9000/json/tweet/create", parameters: json as! [String : AnyObject], encoding: .JSON)
             .responseJSON { response in
                 print(response.response) // URL response
                 
@@ -24,21 +21,21 @@ class LoginViewController: UIViewController {
                 
                 let json = JSON(object)
                 json.forEach {(_, json) in
-                    if (json == "login_success") {
+                    if (json == "create_success") {
                         // 会員一覧ページへの画面遷移
                         let storyboard: UIStoryboard = self.storyboard!
                         let nextVC = storyboard.instantiateViewControllerWithIdentifier("UserList") as! UserListViewController
                         self.presentViewController(nextVC, animated: true, completion: nil)
                     } else {
                         let alertLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,50))
-                        alertLabel.text = "ログイン認証に失敗しました。emailかpasswordが間違っています。"
+                        alertLabel.text = "ツイートに失敗しました。"
                         self.view.addSubview(alertLabel)
                     }
                 }
-            }
+        }
     }
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -46,6 +43,4 @@ class LoginViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-  
 }
-    

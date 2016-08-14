@@ -12,10 +12,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var emailText: UITextField!
+    var passwordText: UITextField!
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
         //ページコントロールのカラーを変更する。
         let pageControl = UIPageControl.appearance()
         pageControl.backgroundColor = UIColor.whiteColor()

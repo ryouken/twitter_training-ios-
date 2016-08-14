@@ -21,7 +21,7 @@
                                 <rect key="frame" x="113" y="315" width="90" height="30"/>
                                 <state key="normal" title="新規会員登録"/>
                                 <connections>
-                                    <action selector="registerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P38-br-2L5"/>
+                                    <action selector="registerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AR3-Gf-gNP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOD-XS-0sz">
@@ -77,18 +77,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="emailText" destination="4H5-Xy-Ygz" id="rBz-X7-5mo"/>
+                        <outlet property="passwordText" destination="wGJ-l9-mCl" id="dFA-33-fvF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5jT-LU-QFF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="469" y="771"/>
-        </scene>
-        <!--Register Page View Controller-->
-        <scene sceneID="sdD-8R-ZAm">
-            <objects>
-                <pageViewController storyboardIdentifier="RegisterPage" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="aDm-8D-7U2" customClass="RegisterPageViewController" customModule="twitter_training" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DQs-Vx-3WI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="469" y="93"/>
+            <point key="canvasLocation" x="1888" y="-536"/>
         </scene>
         <!--Register First View Controller-->
         <scene sceneID="nx2-e0-tV4">
@@ -112,13 +108,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVI-FF-j9z">
+                                <rect key="frame" x="232" y="351" width="32" height="30"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextButton:" destination="6oT-Xp-qg7" eventType="touchUpInside" id="JPp-hG-l4x"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="emailText" destination="2KM-HZ-RxG" id="riK-Is-qC0"/>
+                        <outlet property="passwordText" destination="797-jx-5gG" id="1aw-9q-moG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x3g-TR-SLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="810" y="93"/>
+            <point key="canvasLocation" x="471" y="-536"/>
         </scene>
         <!--Register Second View Controller-->
         <scene sceneID="5wd-ih-ffq">
@@ -152,10 +159,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="nameText" destination="rUK-R3-n2j" id="n0f-gT-G0y"/>
+                        <outlet property="profileText" destination="2x8-g2-67T" id="9bc-ho-xMs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="74P-e9-zgx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1151" y="93"/>
+            <point key="canvasLocation" x="822" y="-536"/>
         </scene>
         <!--User List View Controller-->
         <scene sceneID="zEF-kd-QaK">
@@ -169,17 +180,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dyQ-OW-myG">
+                                <rect key="frame" x="13" y="175" width="307" height="393"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlI-OU-ehw">
+                                <rect key="frame" x="160" y="89" width="42" height="30"/>
+                                <state key="normal" title="Tweet"/>
+                                <connections>
+                                    <action selector="tweetButton:" destination="D5g-h8-dLM" eventType="touchUpInside" id="C10-vT-W4a"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cE-p8-Ug2">
-                                <rect key="frame" x="137" y="77" width="46" height="30"/>
+                                <rect key="frame" x="65" y="89" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="button:" destination="D5g-h8-dLM" eventType="touchUpInside" id="1i7-k9-DOL"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dyQ-OW-myG">
-                                <rect key="frame" x="13" y="175" width="307" height="393"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -189,7 +207,182 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="itI-qk-lGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1608" y="409"/>
+            <point key="canvasLocation" x="471" y="101"/>
+        </scene>
+        <!--My Tweet View Controller-->
+        <scene sceneID="hZb-Mg-xVY">
+            <objects>
+                <viewController storyboardIdentifier="MyTweet" id="7gb-xe-ryc" customClass="MyTweetViewController" customModule="twitter_training" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p9O-SG-hh0"/>
+                        <viewControllerLayoutGuide type="bottom" id="led-I5-VE1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QNq-6t-5Nx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="egf-pK-R6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1182" y="93"/>
+        </scene>
+        <!--Follow List View Controller-->
+        <scene sceneID="DZh-kW-eVe">
+            <objects>
+                <viewController storyboardIdentifier="FollowList" id="Lnk-no-b3k" customClass="FollowListViewController" customModule="twitter_training" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xTn-VS-6hY"/>
+                        <viewControllerLayoutGuide type="bottom" id="iFy-Zt-aKL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eRd-zd-hqs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ryv-hA-3gR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1534" y="93"/>
+        </scene>
+        <!--Tweet View Controller-->
+        <scene sceneID="rNn-Go-QPm">
+            <objects>
+                <viewController storyboardIdentifier="Tweet" id="MEE-sk-f2H" customClass="TweetViewController" customModule="twitter_training" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yQG-g0-Tfd"/>
+                        <viewControllerLayoutGuide type="bottom" id="0xg-3m-14B"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dV7-OB-yqN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="今の気持ちは？" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="viz-5u-8in">
+                                <rect key="frame" x="56" y="168" width="205" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04O-fl-3IU">
+                                <rect key="frame" x="207" y="269" width="60" height="30"/>
+                                <state key="normal" title="ツイート"/>
+                                <connections>
+                                    <action selector="tweetButton:" destination="MEE-sk-f2H" eventType="touchUpInside" id="YvU-vq-VQj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="tweetText" destination="viz-5u-8in" id="5ne-0d-gNb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UgG-Hw-dIS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="471" y="731"/>
+        </scene>
+        <!--Timeline View Controller-->
+        <scene sceneID="ucX-yM-Apl">
+            <objects>
+                <viewController storyboardIdentifier="Timeline" id="6un-Ku-VoE" customClass="TimelineViewController" customModule="twitter_training" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k7G-3M-YMz"/>
+                        <viewControllerLayoutGuide type="bottom" id="YQ2-RR-Fn7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bn5-8H-rab">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4C0-pb-atb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="822" y="101"/>
+        </scene>
+        <!--Edit Second View Controller-->
+        <scene sceneID="NVE-Ml-b3H">
+            <objects>
+                <viewController storyboardIdentifier="EditSecond" id="Q5c-Xd-vOV" customClass="EditSecondViewController" customModule="twitter_training" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hA4-uA-Vbn"/>
+                        <viewControllerLayoutGuide type="bottom" id="xhZ-ok-vRj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J5y-K7-ESl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ニックネーム(表示名)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yaC-hS-YFO">
+                                <rect key="frame" x="81" y="182" width="158" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="プロフィールを編集してみよう！(140文字以内)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HjF-Q0-knz">
+                                <rect key="frame" x="10" y="282" width="300" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4d-c0-cxc">
+                                <rect key="frame" x="231" y="355" width="30" height="30"/>
+                                <state key="normal" title="送信"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J8x-5M-Trt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1522" y="-536"/>
+        </scene>
+        <!--Edit First View Controller-->
+        <scene sceneID="15f-Y1-Fxk">
+            <objects>
+                <viewController storyboardIdentifier="EditFirst" id="ajR-8J-vjE" customClass="EditFirstViewController" customModule="twitter_training" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LoP-gj-eYv"/>
+                        <viewControllerLayoutGuide type="bottom" id="lrx-HF-2JQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Xb-kx-KHb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rfP-28-2Kc">
+                                <rect key="frame" x="112" y="162" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k8m-kC-bBG">
+                                <rect key="frame" x="117" y="293" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9a-QR-Mx3">
+                                <rect key="frame" x="222" y="355" width="32" height="30"/>
+                                <state key="normal" title="Next"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e00-sN-0eh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1175" y="-536"/>
+        </scene>
+        <!--Followed List View Controller-->
+        <scene sceneID="vOm-SK-2yT">
+            <objects>
+                <viewController storyboardIdentifier="FollowedList" id="8BN-eo-yiX" customClass="FollowedListViewController" customModule="twitter_training" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mNt-21-p5Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="gl3-67-Jiu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4c9-Hj-cSE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O4S-j5-Rhz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1888" y="93"/>
         </scene>
     </scenes>
 </document>

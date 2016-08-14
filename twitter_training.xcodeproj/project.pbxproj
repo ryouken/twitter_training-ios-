@@ -23,6 +23,13 @@
 		CB963B101D5C7EFD00A21C9F /* RegisterSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB963B0F1D5C7EFD00A21C9F /* RegisterSecondViewController.swift */; };
 		CB963B121D5C86A300A21C9F /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB963B111D5C86A300A21C9F /* RegisterPageViewController.swift */; };
 		CB963B141D5C8E4300A21C9F /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB963B131D5C8E4300A21C9F /* UserListViewController.swift */; };
+		EB74CB0E1D5DBAF5002AE80C /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB0D1D5DBAF5002AE80C /* TweetViewController.swift */; };
+		EB74CB101D5DDB8B002AE80C /* MyTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB0F1D5DDB8B002AE80C /* MyTweetViewController.swift */; };
+		EB74CB121D5DDBA1002AE80C /* FollowListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB111D5DDBA1002AE80C /* FollowListViewController.swift */; };
+		EB74CB141D5DDBB3002AE80C /* FollowedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB131D5DDBB3002AE80C /* FollowedListViewController.swift */; };
+		EB74CB161D5DDC26002AE80C /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB151D5DDC26002AE80C /* TimelineViewController.swift */; };
+		EB74CB181D5DDC98002AE80C /* EditFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB171D5DDC98002AE80C /* EditFirstViewController.swift */; };
+		EB74CB1A1D5DDCA3002AE80C /* EditSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB191D5DDCA3002AE80C /* EditSecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +78,13 @@
 		DE77E7E50E8E351CF97ACEDA /* Pods_twitter_trainingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_twitter_trainingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23631C85EE999AB1242BD94 /* Pods-twitter_trainingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter_trainingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-twitter_trainingTests/Pods-twitter_trainingTests.release.xcconfig"; sourceTree = "<group>"; };
 		E4E3163AAD5B1ABCB37FFA40 /* Pods_twitter_training.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_twitter_training.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB74CB0D1D5DBAF5002AE80C /* TweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
+		EB74CB0F1D5DDB8B002AE80C /* MyTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTweetViewController.swift; sourceTree = "<group>"; };
+		EB74CB111D5DDBA1002AE80C /* FollowListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowListViewController.swift; sourceTree = "<group>"; };
+		EB74CB131D5DDBB3002AE80C /* FollowedListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowedListViewController.swift; sourceTree = "<group>"; };
+		EB74CB151D5DDC26002AE80C /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		EB74CB171D5DDC98002AE80C /* EditFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFirstViewController.swift; sourceTree = "<group>"; };
+		EB74CB191D5DDCA3002AE80C /* EditSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +152,13 @@
 				CB963B0F1D5C7EFD00A21C9F /* RegisterSecondViewController.swift */,
 				CB963B111D5C86A300A21C9F /* RegisterPageViewController.swift */,
 				CB963B131D5C8E4300A21C9F /* UserListViewController.swift */,
+				EB74CB0D1D5DBAF5002AE80C /* TweetViewController.swift */,
+				EB74CB0F1D5DDB8B002AE80C /* MyTweetViewController.swift */,
+				EB74CB111D5DDBA1002AE80C /* FollowListViewController.swift */,
+				EB74CB131D5DDBB3002AE80C /* FollowedListViewController.swift */,
+				EB74CB151D5DDC26002AE80C /* TimelineViewController.swift */,
+				EB74CB171D5DDC98002AE80C /* EditFirstViewController.swift */,
+				EB74CB191D5DDCA3002AE80C /* EditSecondViewController.swift */,
 			);
 			path = twitter_training;
 			sourceTree = "<group>";
@@ -447,10 +468,17 @@
 			files = (
 				CB963B0E1D5C7ED100A21C9F /* RegisterFirstViewController.swift in Sources */,
 				CB963B141D5C8E4300A21C9F /* UserListViewController.swift in Sources */,
+				EB74CB101D5DDB8B002AE80C /* MyTweetViewController.swift in Sources */,
+				EB74CB0E1D5DBAF5002AE80C /* TweetViewController.swift in Sources */,
+				EB74CB1A1D5DDCA3002AE80C /* EditSecondViewController.swift in Sources */,
+				EB74CB141D5DDBB3002AE80C /* FollowedListViewController.swift in Sources */,
 				CB963B121D5C86A300A21C9F /* RegisterPageViewController.swift in Sources */,
 				CB963B101D5C7EFD00A21C9F /* RegisterSecondViewController.swift in Sources */,
+				EB74CB181D5DDC98002AE80C /* EditFirstViewController.swift in Sources */,
 				CB963B0C1D5C739300A21C9F /* LoginViewController.swift in Sources */,
 				CB963ADE1D5C723A00A21C9F /* ViewController.swift in Sources */,
+				EB74CB161D5DDC26002AE80C /* TimelineViewController.swift in Sources */,
+				EB74CB121D5DDBA1002AE80C /* FollowListViewController.swift in Sources */,
 				CB963ADC1D5C723A00A21C9F /* AppDelegate.swift in Sources */,
 				CB963B0A1D5C736B00A21C9F /* InitialPageViewController.swift in Sources */,
 			);
