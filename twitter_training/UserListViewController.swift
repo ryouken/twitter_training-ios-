@@ -17,6 +17,12 @@ class UserListViewController: UIViewController, UITableViewDataSource {
         let nextVC = storyboard.instantiateViewControllerWithIdentifier("Tweet") as! TweetViewController
         self.presentViewController(nextVC, animated: true, completion: nil)
     }
+    @IBAction func editButton(sender: AnyObject) {
+        // 会員編集ページの画面遷移
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextVC = storyboard.instantiateViewControllerWithIdentifier("EditFirst") as! EditFirstViewController
+        self.presentViewController(nextVC, animated: true, completion: nil)
+    }
     
     
     override func viewDidLoad() {

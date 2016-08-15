@@ -6,7 +6,8 @@ class RegisterSecondViewController: UIViewController{
     var delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
     @IBOutlet weak var nameText: UITextField!
-    @IBOutlet weak var profileText: UITextField!
+   
+    @IBOutlet weak var profileText: PlaceHolderTextView!
     
     @IBAction func nextButton(sender: AnyObject) {
         let email = delegate.emailText.text!
@@ -49,6 +50,10 @@ class RegisterSecondViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        profileText.placeHolder = "プロフィールを入力して下さい(140文字以内)。"
+        profileText.placeHolderColor = UIColor(red:0.76, green:0.76, blue:0.76, alpha:1.0)
+        profileText.layer.borderWidth = 0.5
+        profileText.layer.cornerRadius = 5
     }
 
     override func didReceiveMemoryWarning() {

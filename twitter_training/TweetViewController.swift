@@ -4,7 +4,8 @@ import Alamofire
 
 class TweetViewController: UIViewController {
 
-    @IBOutlet weak var tweetText: UITextField!
+    
+    @IBOutlet weak var tweetText: PlaceHolderTextView!
     @IBAction func tweetButton(sender: AnyObject) {
         let tweet_text = tweetText.text!
         
@@ -38,6 +39,10 @@ class TweetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tweetText.placeHolder = "思ったことをつぶやいてみよう！"
+        tweetText.placeHolderColor = UIColor(red:0.76, green:0.76, blue:0.76, alpha:1.0)
+        tweetText.layer.borderWidth = 0.5
+        tweetText.layer.cornerRadius = 5
     }
 
     override func didReceiveMemoryWarning() {

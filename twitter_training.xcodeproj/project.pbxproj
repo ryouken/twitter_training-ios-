@@ -30,6 +30,8 @@
 		EB74CB161D5DDC26002AE80C /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB151D5DDC26002AE80C /* TimelineViewController.swift */; };
 		EB74CB181D5DDC98002AE80C /* EditFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB171D5DDC98002AE80C /* EditFirstViewController.swift */; };
 		EB74CB1A1D5DDCA3002AE80C /* EditSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB191D5DDCA3002AE80C /* EditSecondViewController.swift */; };
+		EB74CB1C1D61274F002AE80C /* ButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB1B1D61274F002AE80C /* ButtonCustom.swift */; };
+		EB74CB1E1D612F43002AE80C /* PlaceHolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB1D1D612F43002AE80C /* PlaceHolderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		EB74CB151D5DDC26002AE80C /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		EB74CB171D5DDC98002AE80C /* EditFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFirstViewController.swift; sourceTree = "<group>"; };
 		EB74CB191D5DDCA3002AE80C /* EditSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSecondViewController.swift; sourceTree = "<group>"; };
+		EB74CB1B1D61274F002AE80C /* ButtonCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCustom.swift; sourceTree = "<group>"; };
+		EB74CB1D1D612F43002AE80C /* PlaceHolderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceHolderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,8 @@
 				EB74CB151D5DDC26002AE80C /* TimelineViewController.swift */,
 				EB74CB171D5DDC98002AE80C /* EditFirstViewController.swift */,
 				EB74CB191D5DDCA3002AE80C /* EditSecondViewController.swift */,
+				EB74CB1B1D61274F002AE80C /* ButtonCustom.swift */,
+				EB74CB1D1D612F43002AE80C /* PlaceHolderViewController.swift */,
 			);
 			path = twitter_training;
 			sourceTree = "<group>";
@@ -470,6 +476,7 @@
 				CB963B141D5C8E4300A21C9F /* UserListViewController.swift in Sources */,
 				EB74CB101D5DDB8B002AE80C /* MyTweetViewController.swift in Sources */,
 				EB74CB0E1D5DBAF5002AE80C /* TweetViewController.swift in Sources */,
+				EB74CB1C1D61274F002AE80C /* ButtonCustom.swift in Sources */,
 				EB74CB1A1D5DDCA3002AE80C /* EditSecondViewController.swift in Sources */,
 				EB74CB141D5DDBB3002AE80C /* FollowedListViewController.swift in Sources */,
 				CB963B121D5C86A300A21C9F /* RegisterPageViewController.swift in Sources */,
@@ -479,6 +486,7 @@
 				CB963ADE1D5C723A00A21C9F /* ViewController.swift in Sources */,
 				EB74CB161D5DDC26002AE80C /* TimelineViewController.swift in Sources */,
 				EB74CB121D5DDBA1002AE80C /* FollowListViewController.swift in Sources */,
+				EB74CB1E1D612F43002AE80C /* PlaceHolderViewController.swift in Sources */,
 				CB963ADC1D5C723A00A21C9F /* AppDelegate.swift in Sources */,
 				CB963B0A1D5C736B00A21C9F /* InitialPageViewController.swift in Sources */,
 			);
