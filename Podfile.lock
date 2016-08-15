@@ -1,18 +1,21 @@
 PODS:
   - Alamofire (3.4.1)
+  - PageMenu (1.2.9)
   - SwiftValidator (3.0.3)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire
+  - PageMenu
   - SwiftValidator
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  PageMenu: ba19ff267f7a19e444e93c20a7847b78954a7011
   SwiftValidator: 0b6a48bf10364411b0d64c97f78665ff87ca9f8b
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: fd7df82ec945502c2a574d7261f2e9fd0d1d37fb
+PODFILE CHECKSUM: 2fe5ebec39b8f35a071859c578f8ac324533a515
 
 COCOAPODS: 1.0.1

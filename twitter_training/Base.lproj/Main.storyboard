@@ -64,7 +64,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Welcome to Twitter!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgH-sl-XPf">
-                                <rect key="frame" x="10" y="152" width="300" height="70"/>
+                                <rect key="frame" x="10" y="150" width="300" height="70"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -82,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="120" y="419"/>
+            <point key="canvasLocation" x="88" y="101"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="UqR-kU-ghh">
@@ -242,36 +242,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dyQ-OW-myG">
-                                <rect key="frame" x="13" y="175" width="307" height="393"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="4" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="FBd-Jx-ai5">
+                                <rect key="frame" x="0.0" y="54" width="320" height="514"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlI-OU-ehw">
-                                <rect key="frame" x="160" y="89" width="42" height="30"/>
-                                <state key="normal" title="Tweet"/>
-                                <connections>
-                                    <action selector="tweetButton:" destination="D5g-h8-dLM" eventType="touchUpInside" id="C10-vT-W4a"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flN-jB-fgC">
-                                <rect key="frame" x="131" y="127" width="30" height="30"/>
-                                <state key="normal" title="edit"/>
-                                <connections>
-                                    <action selector="editButton:" destination="D5g-h8-dLM" eventType="touchUpInside" id="EeC-FF-K9c"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cE-p8-Ug2">
-                                <rect key="frame" x="65" y="89" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="button:" destination="D5g-h8-dLM" eventType="touchUpInside" id="1i7-k9-DOL"/>
-                                </connections>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="dyQ-OW-myG" id="a3y-u3-tPo"/>
+                        <outlet property="tableView" destination="FBd-Jx-ai5" id="kNO-78-rhC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="itI-qk-lGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -289,8 +269,17 @@
                     <view key="view" contentMode="scaleToFill" id="QNq-6t-5Nx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Ff-kp-OVu">
+                                <rect key="frame" x="0.0" y="71" width="320" height="497"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="4Ff-kp-OVu" id="2If-xR-c9k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egf-pK-R6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -307,8 +296,17 @@
                     <view key="view" contentMode="scaleToFill" id="eRd-zd-hqs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PiD-47-is6">
+                                <rect key="frame" x="-5" y="73" width="325" height="495"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="PiD-47-is6" id="npj-IU-20Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ryv-hA-3gR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -375,6 +373,33 @@
             </objects>
             <point key="canvasLocation" x="471" y="731"/>
         </scene>
+        <!--Page Menu View Controller-->
+        <scene sceneID="C2k-Yg-ytC">
+            <objects>
+                <viewController storyboardIdentifier="PageMenu" id="1PI-f8-lOR" customClass="PageMenuViewController" customModule="twitter_training" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5G8-7v-EXa"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZcZ-Yf-qBR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nLu-nL-BLv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lif-Ip-BBv">
+                                <rect key="frame" x="325" y="625" width="50" height="50"/>
+                                <state key="normal" title="Button" image="tweet_button_0816073313.png"/>
+                                <connections>
+                                    <action selector="tweetButton:" destination="1PI-f8-lOR" eventType="touchUpInside" id="qfA-kS-mXB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="72c-YC-AzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="823" y="734"/>
+        </scene>
         <!--Timeline View Controller-->
         <scene sceneID="ucX-yM-Apl">
             <objects>
@@ -386,8 +411,17 @@
                     <view key="view" contentMode="scaleToFill" id="bn5-8H-rab">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sHI-Yf-9il">
+                                <rect key="frame" x="0.0" y="62" width="320" height="506"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="sHI-Yf-9il" id="FsY-es-1bv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4C0-pb-atb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -404,8 +438,17 @@
                     <view key="view" contentMode="scaleToFill" id="4c9-Hj-cSE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yc5-yc-wFd">
+                                <rect key="frame" x="0.0" y="69" width="320" height="499"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="yc5-yc-wFd" id="qLU-HM-UGd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O4S-j5-Rhz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -589,8 +632,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="nextButton:" destination="bHV-h9-BV2" eventType="touchUpInside" id="VtX-CY-LWw"/>
-                                    <action selector="registerButton:" destination="bHV-h9-BV2" eventType="touchUpInside" id="NGB-h5-LGO"/>
+                                    <action selector="editButton:" destination="bHV-h9-BV2" eventType="touchUpInside" id="eC8-Kw-PBg"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ニックネーム(表示名)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pG9-Qp-LRr">
@@ -622,12 +664,91 @@
                     <connections>
                         <outlet property="nameText" destination="pG9-Qp-LRr" id="5TK-gp-bQf"/>
                         <outlet property="profileText" destination="Bnt-nN-11K" id="eCM-zS-zs8"/>
-                        <outlet property="user_nameText" destination="pG9-Qp-LRr" id="Ux4-bw-UeM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROo-hX-dXk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1539" y="-536"/>
         </scene>
+        <!--End Page View Controller-->
+        <scene sceneID="e5W-ax-hbu">
+            <objects>
+                <viewController storyboardIdentifier="EndPage" id="OA9-ZR-wIp" customClass="EndPageViewController" customModule="twitter_training" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z46-Cq-lP7"/>
+                        <viewControllerLayoutGuide type="bottom" id="uwr-D4-yzK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kvh-Yt-KtE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yo4-WQ-4oq" customClass="ButtonCustom" customModule="twitter_training" customModuleProvider="target">
+                                <rect key="frame" x="60" y="350" width="200" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="会員情報編集"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="editButton:" destination="OA9-ZR-wIp" eventType="touchUpInside" id="1ZJ-KA-VGD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7o-ni-m4Z" customClass="ButtonCustom" customModule="twitter_training" customModuleProvider="target">
+                                <rect key="frame" x="60" y="500" width="200" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="ログアウト">
+                                    <color key="titleColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="logoutButton:" destination="OA9-ZR-wIp" eventType="touchUpInside" id="kxn-MK-ArT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gO7-sb-aOC">
+                                <rect key="frame" x="10" y="150" width="300" height="70"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="gO7-sb-aOC" firstAttribute="centerX" secondItem="kvh-Yt-KtE" secondAttribute="centerX" id="LfQ-Yt-XWK"/>
+                            <constraint firstItem="I7o-ni-m4Z" firstAttribute="centerX" secondItem="kvh-Yt-KtE" secondAttribute="centerX" id="aB8-w1-aA6"/>
+                            <constraint firstItem="Yo4-WQ-4oq" firstAttribute="centerX" secondItem="kvh-Yt-KtE" secondAttribute="centerX" id="inR-Tn-sZb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="szX-5s-QbZ" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="88" y="731"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="tweet_button_0816073313.png" width="180" height="180"/>
+    </resources>
 </document>

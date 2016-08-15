@@ -25,7 +25,7 @@ class TweetViewController: UIViewController {
                     if (json == "create_success") {
                         // 会員一覧ページへの画面遷移
                         let storyboard: UIStoryboard = self.storyboard!
-                        let nextVC = storyboard.instantiateViewControllerWithIdentifier("UserList") as! UserListViewController
+                        let nextVC = storyboard.instantiateViewControllerWithIdentifier("PageMenu") as! PageMenuViewController
                         self.presentViewController(nextVC, animated: true, completion: nil)
                     } else {
                         let alertLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,50))

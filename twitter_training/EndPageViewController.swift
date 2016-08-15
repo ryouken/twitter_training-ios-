@@ -1,20 +1,18 @@
 import UIKit
-import SwiftyJSON
 import Alamofire
+import SwiftyJSON
 
-class LoginViewController: UIViewController {
+class EndPageViewController: UIViewController {
+
+    @IBAction func editButton(sender: AnyObject) {
+        // 会員情報編集ページの画面遷移
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextVC = storyboard.instantiateViewControllerWithIdentifier("EditFirst") as! EditFirstViewController
+        self.presentViewController(nextVC, animated: true, completion: nil)
+    }
     
-    @IBOutlet weak var emailText: UITextField!
-    @IBOutlet weak var passwordText: UITextField!
-    
-    @IBAction func nextButton(sender: AnyObject) {
-        let email: String = emailText.text!
-        let password: String = passwordText.text!
-        
-        let json = ["email": email, "password": password]
-        print(json)
-        
-        Alamofire.request(.POST, "http://localhost:9000/json/user/authenticate", parameters: json, encoding: .JSON)
+    @IBAction func logoutButton(sender: AnyObject) {
+        Alamofire.request(.GET, "http://localhost:9000/json/user/logout")
             .responseJSON { response in
                 print(response.response) // URL response
                 
@@ -24,21 +22,21 @@ class LoginViewController: UIViewController {
                 
                 let json = JSON(object)
                 json.forEach {(_, json) in
-                    if (json == "login_success") {
+                    if (json == "logout_success") {
                         // 会員一覧ページへの画面遷移
                         let storyboard: UIStoryboard = self.storyboard!
-                        let nextVC = storyboard.instantiateViewControllerWithIdentifier("PageMenu") as! PageMenuViewController
+                        let nextVC = storyboard.instantiateViewControllerWithIdentifier("InitialPage") as! InitialPageViewController
                         self.presentViewController(nextVC, animated: true, completion: nil)
                     } else {
                         let alertLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,50))
-                        alertLabel.text = "ログイン認証に失敗しました。emailかpasswordが間違っています。"
+                        alertLabel.text = "ログアウトに失敗しました。"
                         self.view.addSubview(alertLabel)
                     }
                 }
             }
     }
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -46,6 +44,4 @@ class LoginViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-  
 }
-    

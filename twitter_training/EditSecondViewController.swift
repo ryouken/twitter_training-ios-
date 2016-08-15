@@ -8,7 +8,7 @@ class EditSecondViewController: UIViewController {
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var profileText: PlaceHolderTextView!
     
-    @IBAction func registerButton(sender: AnyObject) {
+    @IBAction func editButton(sender: AnyObject) {
         let email = delegate.emailText.text!
         let password = delegate.passwordText.text!
         let user_name = nameText.text!
@@ -20,7 +20,7 @@ class EditSecondViewController: UIViewController {
             "profile_text": profile_text]
         print(json)
         
-        Alamofire.request(.POST, "http://localhost:9000/json/user/update", parameters: json, encoding: .JSON)
+        Alamofire.request(.PUT, "http://localhost:9000/json/user/update", parameters: json, encoding: .JSON)
             .responseJSON { response in
                 print(response.response) // URL response
                 
@@ -35,7 +35,7 @@ class EditSecondViewController: UIViewController {
                     if (json == "update_success") {
                         // タイムラインへ画面遷移
                         let storyboard: UIStoryboard = self.storyboard!
-                        let nextVC = storyboard.instantiateViewControllerWithIdentifier("Timeline") as! TimelineViewController
+                        let nextVC = storyboard.instantiateViewControllerWithIdentifier("PageMenu") as! PageMenuViewController
                         self.presentViewController(nextVC, animated: true, completion: nil)
                     } else {
                         let alertLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,50))
@@ -44,9 +44,8 @@ class EditSecondViewController: UIViewController {
                     }
                 }
         }
-
+        
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
