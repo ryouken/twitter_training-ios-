@@ -8,11 +8,10 @@ class TweetViewController: UIViewController {
     @IBOutlet weak var tweetText: PlaceHolderTextView!
     @IBAction func tweetButton(sender: AnyObject) {
         let tweet_text = tweetText.text!
-        
-        let json = ["tweet_id": 0, "tweet_text": tweet_text]
+        let json: [String : AnyObject] = ["tweet_id": 0, "tweet_text": tweet_text]
         print(json)
         
-        Alamofire.request(.POST, "http://localhost:9000/json/tweet/create", parameters: json as! [String : AnyObject], encoding: .JSON)
+        Alamofire.request(.POST, "http://localhost:9000/json/tweet/create", parameters: json, encoding: .JSON)
             .responseJSON { response in
                 print(response.response) // URL response
                 
@@ -23,8 +22,8 @@ class TweetViewController: UIViewController {
                 let json = JSON(object)
                 json.forEach {(_, json) in
                     if (json == "create_success") {
-                        // 会員一覧ページへの画面遷移
-                        let storyboard: UIStoryboard = self.storyboard!
+                        // メインページへの画面遷移
+                        let storyboard = self.storyboard!
                         let nextVC = storyboard.instantiateViewControllerWithIdentifier("PageMenu") as! PageMenuViewController
                         self.presentViewController(nextVC, animated: true, completion: nil)
                     } else {

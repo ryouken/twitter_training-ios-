@@ -6,7 +6,7 @@ class PageMenuViewController: UIViewController {
     
     @IBAction func tweetButton(sender: AnyObject) {
         // ツイートページの画面遷移
-        let storyboard: UIStoryboard = self.storyboard!
+        let storyboard = self.storyboard!
         let nextVC = storyboard.instantiateViewControllerWithIdentifier("Tweet") as! TweetViewController
         self.presentViewController(nextVC, animated: true, completion: nil)
     }
@@ -15,7 +15,7 @@ class PageMenuViewController: UIViewController {
         super.viewDidLoad()
 
         // Viewを格納する配列
-        var controllerArray : [UIViewController] = []
+        var controllerArray: [UIViewController] = []
         
         // 追加するViewを作成
         let UserListVC = self.storyboard!.instantiateViewControllerWithIdentifier("UserList")
@@ -39,7 +39,7 @@ class PageMenuViewController: UIViewController {
         controllerArray.append(FollowedListVC)
         
         let EndPageVC = self.storyboard!.instantiateViewControllerWithIdentifier("EndPage")
-        FollowedListVC.title = "Settings"
+        EndPageVC.title = "Settings"
         controllerArray.append(EndPageVC)
         
         // PageMenuの設定

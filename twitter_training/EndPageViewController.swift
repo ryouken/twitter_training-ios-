@@ -6,7 +6,7 @@ class EndPageViewController: UIViewController {
 
     @IBAction func editButton(sender: AnyObject) {
         // 会員情報編集ページの画面遷移
-        let storyboard: UIStoryboard = self.storyboard!
+        let storyboard = self.storyboard!
         let nextVC = storyboard.instantiateViewControllerWithIdentifier("EditFirst") as! EditFirstViewController
         self.presentViewController(nextVC, animated: true, completion: nil)
     }

@@ -9,8 +9,9 @@ class EditFirstViewController: UIViewController {
     @IBAction func nextButton(sender: AnyObject) {
         self.delegate.emailText = emailText
         self.delegate.passwordText = passwordText
+        
         // 会員編集(2)への画面遷移
-        let storyboard: UIStoryboard = self.storyboard!
+        let storyboard = self.storyboard!
         let nextVC = storyboard.instantiateViewControllerWithIdentifier("EditSecond") as! EditSecondViewController
         self.presentViewController(nextVC, animated: true, completion: nil)
     }

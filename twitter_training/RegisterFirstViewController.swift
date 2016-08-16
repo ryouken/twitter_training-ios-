@@ -9,8 +9,9 @@ class RegisterFirstViewController: UIViewController {
     @IBAction func nextButton(sender: AnyObject) {
         self.delegate.emailText = emailText
         self.delegate.passwordText = passwordText
+
         // 新規会員登録(2)への画面遷移
-        let storyboard: UIStoryboard = self.storyboard!
+        let storyboard = self.storyboard!
         let nextVC = storyboard.instantiateViewControllerWithIdentifier("RegisterSecond") as! RegisterSecondViewController
         self.presentViewController(nextVC, animated: true, completion: nil)
     }

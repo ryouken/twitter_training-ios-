@@ -26,7 +26,6 @@ class TimelineViewController: UIViewController, UITableViewDataSource {
                 }
                 
                 let json = JSON(object)
-//                json.forEach { (_, json) in
                     json.forEach { (_, tweet) in
                         let tweet: [String: String?] = [
                             "tweet_id": tweet["tweet_id"].string,
@@ -35,7 +34,6 @@ class TimelineViewController: UIViewController, UITableViewDataSource {
                         ]
                         self.tweets.append(tweet)
                     }
-//                }
                 self.tableView.reloadData()
         }
     }
@@ -52,9 +50,6 @@ class TimelineViewController: UIViewController, UITableViewDataSource {
         cell.detailTextLabel?.text = tweet["tweet_text"]!
         cell.detailTextLabel?.font = UIFont(name: "Arial", size: 20)
         cell.detailTextLabel?.numberOfLines=0
-        //        cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        //        cell.detailTextLabel?.sizeToFit()
-        
         
         return cell
     }

@@ -2,7 +2,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController  {
     
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
@@ -10,7 +10,6 @@ class LoginViewController: UIViewController {
     @IBAction func nextButton(sender: AnyObject) {
         let email: String = emailText.text!
         let password: String = passwordText.text!
-        
         let json = ["email": email, "password": password]
         print(json)
         
@@ -25,8 +24,8 @@ class LoginViewController: UIViewController {
                 let json = JSON(object)
                 json.forEach {(_, json) in
                     if (json == "login_success") {
-                        // 会員一覧ページへの画面遷移
-                        let storyboard: UIStoryboard = self.storyboard!
+                        // メインページへの画面遷移
+                        let storyboard = self.storyboard!
                         let nextVC = storyboard.instantiateViewControllerWithIdentifier("PageMenu") as! PageMenuViewController
                         self.presentViewController(nextVC, animated: true, completion: nil)
                     } else {

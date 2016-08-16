@@ -13,11 +13,12 @@ class EditSecondViewController: UIViewController {
         let password = delegate.passwordText.text!
         let user_name = nameText.text!
         let profile_text = profileText.text!
-        let json = [
-            "email": email,
-            "password": password,
-            "user_name": user_name,
-            "profile_text": profile_text]
+        let json: [String: AnyObject] = [
+            "user_id"      : 0,
+            "email"        : email,
+            "password"     : password,
+            "user_name"    : user_name,
+            "profile_text" : profile_text]
         print(json)
         
         Alamofire.request(.PUT, "http://localhost:9000/json/user/update", parameters: json, encoding: .JSON)
@@ -33,8 +34,8 @@ class EditSecondViewController: UIViewController {
                 
                 json.forEach {(_, json) in
                     if (json == "update_success") {
-                        // タイムラインへ画面遷移
-                        let storyboard: UIStoryboard = self.storyboard!
+                        // メインページへ画面遷移
+                        let storyboard = self.storyboard!
                         let nextVC = storyboard.instantiateViewControllerWithIdentifier("PageMenu") as! PageMenuViewController
                         self.presentViewController(nextVC, animated: true, completion: nil)
                     } else {

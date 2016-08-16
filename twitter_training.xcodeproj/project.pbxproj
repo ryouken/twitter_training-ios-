@@ -21,7 +21,6 @@
 		CB963B0C1D5C739300A21C9F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB963B0B1D5C739300A21C9F /* LoginViewController.swift */; };
 		CB963B0E1D5C7ED100A21C9F /* RegisterFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB963B0D1D5C7ED100A21C9F /* RegisterFirstViewController.swift */; };
 		CB963B101D5C7EFD00A21C9F /* RegisterSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB963B0F1D5C7EFD00A21C9F /* RegisterSecondViewController.swift */; };
-		CB963B121D5C86A300A21C9F /* RegisterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB963B111D5C86A300A21C9F /* RegisterPageViewController.swift */; };
 		CB963B141D5C8E4300A21C9F /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB963B131D5C8E4300A21C9F /* UserListViewController.swift */; };
 		EB74CB0E1D5DBAF5002AE80C /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB0D1D5DBAF5002AE80C /* TweetViewController.swift */; };
 		EB74CB101D5DDB8B002AE80C /* MyTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB0F1D5DDB8B002AE80C /* MyTweetViewController.swift */; };
@@ -36,6 +35,7 @@
 		EB74CB221D61D7F1002AE80C /* PageMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB211D61D7F1002AE80C /* PageMenuViewController.swift */; };
 		EB74CB241D627B38002AE80C /* tweet_button_0816073313.png in Resources */ = {isa = PBXBuildFile; fileRef = EB74CB231D627B38002AE80C /* tweet_button_0816073313.png */; };
 		EB74CB261D627F2E002AE80C /* EndPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB251D627F2E002AE80C /* EndPageViewController.swift */; };
+		EB74CB281D629FEE002AE80C /* HttpRequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB271D629FEE002AE80C /* HttpRequestMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +79,6 @@
 		CB963B0B1D5C739300A21C9F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CB963B0D1D5C7ED100A21C9F /* RegisterFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterFirstViewController.swift; sourceTree = "<group>"; };
 		CB963B0F1D5C7EFD00A21C9F /* RegisterSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterSecondViewController.swift; sourceTree = "<group>"; };
-		CB963B111D5C86A300A21C9F /* RegisterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPageViewController.swift; sourceTree = "<group>"; };
 		CB963B131D5C8E4300A21C9F /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		DE77E7E50E8E351CF97ACEDA /* Pods_twitter_trainingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_twitter_trainingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23631C85EE999AB1242BD94 /* Pods-twitter_trainingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter_trainingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-twitter_trainingTests/Pods-twitter_trainingTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +96,7 @@
 		EB74CB211D61D7F1002AE80C /* PageMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageMenuViewController.swift; sourceTree = "<group>"; };
 		EB74CB231D627B38002AE80C /* tweet_button_0816073313.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tweet_button_0816073313.png; path = ../../../../Downloads/tweet_button_0816073313.png; sourceTree = "<group>"; };
 		EB74CB251D627F2E002AE80C /* EndPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPageViewController.swift; sourceTree = "<group>"; };
+		EB74CB271D629FEE002AE80C /* HttpRequestMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +161,6 @@
 				CB963B091D5C736B00A21C9F /* InitialPageViewController.swift */,
 				CB963B0D1D5C7ED100A21C9F /* RegisterFirstViewController.swift */,
 				CB963B0F1D5C7EFD00A21C9F /* RegisterSecondViewController.swift */,
-				CB963B111D5C86A300A21C9F /* RegisterPageViewController.swift */,
 				EB74CB171D5DDC98002AE80C /* EditFirstViewController.swift */,
 				EB74CB191D5DDCA3002AE80C /* EditSecondViewController.swift */,
 				CB963B0B1D5C739300A21C9F /* LoginViewController.swift */,
@@ -171,12 +170,13 @@
 				EB74CB151D5DDC26002AE80C /* TimelineViewController.swift */,
 				EB74CB0F1D5DDB8B002AE80C /* MyTweetViewController.swift */,
 				EB74CB111D5DDBA1002AE80C /* FollowListViewController.swift */,
-				EB74CB131D5DDBB3002AE80C /* FollowedListViewController.swift */,
 				EB74CB251D627F2E002AE80C /* EndPageViewController.swift */,
+				EB74CB131D5DDBB3002AE80C /* FollowedListViewController.swift */,
 				EB74CB1B1D61274F002AE80C /* ButtonCustom.swift */,
 				EB74CB1D1D612F43002AE80C /* PlaceHolderViewController.swift */,
 				EB74CB1F1D61D769002AE80C /* CAPSPageMenu.swift */,
 				EB74CB231D627B38002AE80C /* tweet_button_0816073313.png */,
+				EB74CB271D629FEE002AE80C /* HttpRequestMethod.swift */,
 			);
 			path = twitter_training;
 			sourceTree = "<group>";
@@ -492,10 +492,10 @@
 				EB74CB1C1D61274F002AE80C /* ButtonCustom.swift in Sources */,
 				EB74CB1A1D5DDCA3002AE80C /* EditSecondViewController.swift in Sources */,
 				EB74CB141D5DDBB3002AE80C /* FollowedListViewController.swift in Sources */,
-				CB963B121D5C86A300A21C9F /* RegisterPageViewController.swift in Sources */,
 				EB74CB201D61D769002AE80C /* CAPSPageMenu.swift in Sources */,
 				EB74CB261D627F2E002AE80C /* EndPageViewController.swift in Sources */,
 				CB963B101D5C7EFD00A21C9F /* RegisterSecondViewController.swift in Sources */,
+				EB74CB281D629FEE002AE80C /* HttpRequestMethod.swift in Sources */,
 				EB74CB181D5DDC98002AE80C /* EditFirstViewController.swift in Sources */,
 				CB963B0C1D5C739300A21C9F /* LoginViewController.swift in Sources */,
 				CB963ADE1D5C723A00A21C9F /* ViewController.swift in Sources */,

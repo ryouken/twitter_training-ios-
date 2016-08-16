@@ -6,7 +6,6 @@ class RegisterSecondViewController: UIViewController{
     var delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
     @IBOutlet weak var nameText: UITextField!
-   
     @IBOutlet weak var profileText: PlaceHolderTextView!
     
     @IBAction func nextButton(sender: AnyObject) {
@@ -14,11 +13,12 @@ class RegisterSecondViewController: UIViewController{
         let password = delegate.passwordText.text!
         let user_name = nameText.text!
         let profile_text = profileText.text!
-        let json = [
-            "email": email,
-            "password": password,
-            "user_name": user_name,
-            "profile_text": profile_text]
+        let json: [String: AnyObject] = [
+            "user_id"      : 0,
+            "email"        : email,
+            "password"     : password,
+            "user_name"    : user_name,
+            "profile_text" : profile_text]
         print(json)
         
         Alamofire.request(.POST, "http://localhost:9000/json/user/create", parameters: json, encoding: .JSON)
@@ -35,7 +35,7 @@ class RegisterSecondViewController: UIViewController{
                 json.forEach {(_, json) in
                     if (json == "create_success") {
                         // ログインページへ画面遷移
-                        let storyboard: UIStoryboard = self.storyboard!
+                        let storyboard = self.storyboard!
                         let nextVC = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
                         self.presentViewController(nextVC, animated: true, completion: nil)
                     } else {
