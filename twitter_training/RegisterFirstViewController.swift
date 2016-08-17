@@ -6,6 +6,12 @@ class RegisterFirstViewController: UIViewController {
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     
+    @IBAction func backButton(sender: AnyObject) {
+        // Initial Pageへの画面遷移
+        let storyboard = self.storyboard!
+        let nextVC = storyboard.instantiateViewControllerWithIdentifier("InitialPage") as! InitialPageViewController
+        self.presentViewController(nextVC, animated: true, completion: nil)
+    }
     @IBAction func nextButton(sender: AnyObject) {
         self.delegate.emailText = emailText
         self.delegate.passwordText = passwordText

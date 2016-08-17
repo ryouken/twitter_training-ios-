@@ -47,11 +47,12 @@ class UserListViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cell") // いつか落ちる。再利用。
         let user = users[indexPath.row]
-        cell.textLabel?.text = user["user_name"]!
+        cell.textLabel?.text = user["profile_text"]!
         cell.textLabel?.font = UIFont(name: "Arial", size: 20)
-        cell.detailTextLabel?.text = user["profile_text"]!
-        cell.detailTextLabel?.font = UIFont(name: "Arial", size: 20)
-        cell.detailTextLabel?.numberOfLines = 0
+        cell.detailTextLabel?.text = user["user_name"]!
+        cell.detailTextLabel?.font = UIFont(name: "Arial", size: 16)
+        cell.textLabel?.numberOfLines = 0
+        cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
         return cell
     }
     

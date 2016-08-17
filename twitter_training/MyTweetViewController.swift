@@ -13,10 +13,10 @@ class MyTweetViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableViewAutomaticDimension
-        getTimeline()
+        getMyTweet()
     }
     
-    func getTimeline() {
+    func getMyTweet() {
         Alamofire.request(.GET, "http://localhost:9000/json/tweet/mylist")
             .responseJSON { response in
                 print(response.response)
@@ -46,12 +46,10 @@ class MyTweetViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cell")
         let tweet = tweets[indexPath.row]
-        cell.detailTextLabel?.text = tweet["tweet_text"]!
-        cell.detailTextLabel?.font = UIFont(name: "Arial", size: 20)
-        cell.detailTextLabel?.numberOfLines=0
-        //        cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        //        cell.detailTextLabel?.sizeToFit()
-        
+        cell.textLabel?.text = tweet["tweet_text"]!
+        cell.textLabel?.font = UIFont(name: "Arial", size: 20)
+        cell.textLabel?.numberOfLines=0
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
         
         return cell
     }

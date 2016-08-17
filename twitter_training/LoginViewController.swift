@@ -11,7 +11,6 @@ class LoginViewController: UIViewController  {
         let email: String = emailText.text!
         let password: String = passwordText.text!
         let json = ["email": email, "password": password]
-        print(json)
         
         Alamofire.request(.POST, "http://localhost:9000/json/user/authenticate", parameters: json, encoding: .JSON)
             .responseJSON { response in

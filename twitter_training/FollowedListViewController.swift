@@ -13,10 +13,10 @@ class FollowedListViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableViewAutomaticDimension
-        getTimeline()
+        getFollowedList()
     }
     
-    func getTimeline() {
+    func getFollowedList() {
         Alamofire.request(.GET, "http://localhost:9000/json/followed/list")
             .responseJSON { response in
                 print(response.response)
@@ -44,14 +44,12 @@ class FollowedListViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cell")
         let follow = follows[indexPath.row]
-        cell.textLabel?.text = follow["user_name"]!
+        cell.textLabel?.text = follow["profile_text"]!
         cell.textLabel?.font = UIFont(name: "Arial", size: 20)
-        cell.detailTextLabel?.text = follow["profile_text"]!
-        cell.detailTextLabel?.font = UIFont(name: "Arial", size: 20)
-        cell.detailTextLabel?.numberOfLines=0
-        //        cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        //        cell.detailTextLabel?.sizeToFit()
-        
+        cell.detailTextLabel?.text = follow["user_name"]!
+        cell.detailTextLabel?.font = UIFont(name: "Arial", size: 16)
+        cell.textLabel?.numberOfLines = 0
+        cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
         
         return cell
     }

@@ -6,6 +6,11 @@ class TweetViewController: UIViewController {
 
     
     @IBOutlet weak var tweetText: PlaceHolderTextView!
+    @IBAction func backButton(sender: AnyObject) {
+        // メインページへの画面遷移
+        let storyboard = self.storyboard!
+        let nextVC = storyboard.instantiateViewControllerWithIdentifier("PageMenu") as! PageMenuViewController
+        self.presentViewController(nextVC, animated: true, completion: nil)    }
     @IBAction func tweetButton(sender: AnyObject) {
         let tweet_text = tweetText.text!
         let json: [String : AnyObject] = ["tweet_id": 0, "tweet_text": tweet_text]

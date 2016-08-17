@@ -19,7 +19,6 @@ class RegisterSecondViewController: UIViewController{
             "password"     : password,
             "user_name"    : user_name,
             "profile_text" : profile_text]
-        print(json)
         
         Alamofire.request(.POST, "http://localhost:9000/json/user/create", parameters: json, encoding: .JSON)
             .responseJSON { response in

@@ -45,11 +45,12 @@ class TimelineViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cell")
         let tweet = tweets[indexPath.row]
-        cell.textLabel?.text = tweet["user_name"]!
+        cell.textLabel?.text = tweet["tweet_text"]!
         cell.textLabel?.font = UIFont(name: "Arial", size: 20)
-        cell.detailTextLabel?.text = tweet["tweet_text"]!
-        cell.detailTextLabel?.font = UIFont(name: "Arial", size: 20)
-        cell.detailTextLabel?.numberOfLines=0
+        cell.detailTextLabel?.text = tweet["user_name"]!
+        cell.detailTextLabel?.font = UIFont(name: "Arial", size: 16)
+        cell.textLabel?.numberOfLines=0
+        cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
         
         return cell
     }
