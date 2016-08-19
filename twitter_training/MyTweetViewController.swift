@@ -17,7 +17,7 @@ class MyTweetViewController: UIViewController, UITableViewDataSource {
     }
     
     func getMyTweet() {
-        Alamofire.request(.GET, "http://localhost:9000/json/tweet/mylist")
+        Alamofire.request(.GET, "\(Constant.url)/json/tweet/mylist")
             .responseJSON { response in
                 print(response.response)
                 
@@ -47,7 +47,7 @@ class MyTweetViewController: UIViewController, UITableViewDataSource {
         let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cell")
         let tweet = tweets[indexPath.row]
         cell.textLabel?.text = tweet["tweet_text"]!
-        cell.textLabel?.font = UIFont(name: "Arial", size: 20)
+        cell.textLabel?.font = UIFont(name: "Arial", size: 24)
         cell.textLabel?.numberOfLines=0
         cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
         

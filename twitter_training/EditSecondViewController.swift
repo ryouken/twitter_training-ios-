@@ -3,7 +3,7 @@ import SwiftyJSON
 import Alamofire
 import SwiftCop
 
-class EditSecondViewController: UIViewController {
+class EditSecondViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     var delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     let swiftCop = SwiftCop()
     var default_user_name: String!
@@ -33,7 +33,7 @@ class EditSecondViewController: UIViewController {
         let allGuiltiesMessage = swiftCop.allGuilties().map{ return $0.sentence}.joinWithSeparator("\n")
         
         if (allGuiltiesMessage.characters.count == 0) {
-            Alamofire.request(.PUT, "http://localhost:9000/json/user/update", parameters: json, encoding: .JSON)
+            Alamofire.request(.PUT, "\(Constant.url)/json/user/update", parameters: json, encoding: .JSON)
                 .responseJSON { response in
                     print(response.response) // URL response
                     
@@ -78,7 +78,7 @@ class EditSecondViewController: UIViewController {
     }
     
     func getUser() {
-        Alamofire.request(.GET, "http://localhost:9000/json/user/edit")
+        Alamofire.request(.GET, "\(Constant.url)/json/user/edit")
             .responseJSON { response in
                 
                 guard let object = response.result.value else {
@@ -94,8 +94,29 @@ class EditSecondViewController: UIViewController {
         }
     }
     
+    // 他のところをタップしたらキーボードを隠す
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        //非表示にする。
+        if(nameText.isFirstResponder()){
+            nameText.resignFirstResponder()
+        }
+        if(profileText.isFirstResponder()){
+            profileText.resignFirstResponder()
+        }
+    }
+    // returnでキーボードを隠す
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameText.delegate = self
+        profileText.delegate = self
+        
         getUser()
         
         // バリデーションの出力

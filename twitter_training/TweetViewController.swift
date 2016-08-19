@@ -2,7 +2,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-class TweetViewController: UIViewController {
+class TweetViewController: UIViewController, UITextViewDelegate {
 
     
     @IBOutlet weak var tweetText: PlaceHolderTextView!
@@ -16,7 +16,7 @@ class TweetViewController: UIViewController {
         let json: [String : AnyObject] = ["tweet_id": 0, "tweet_text": tweet_text]
         print(json)
         
-        Alamofire.request(.POST, "http://localhost:9000/json/tweet/create", parameters: json, encoding: .JSON)
+        Alamofire.request(.POST, "\(Constant.url)/json/tweet/create", parameters: json, encoding: .JSON)
             .responseJSON { response in
                 print(response.response) // URL response
                 
@@ -40,9 +40,24 @@ class TweetViewController: UIViewController {
         }
     }
     
+    // 他のところをタップしたらキーボードを隠す
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        //非表示にする。
+        if(tweetText.isFirstResponder()){
+            tweetText.resignFirstResponder()
+        }
+    }
+    // returnでキーボードを隠す
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tweetText.delegate = self
+        
         tweetText.placeHolder = "思ったことをつぶやいてみよう！"
         tweetText.placeHolderColor = UIColor(red:0.76, green:0.76, blue:0.76, alpha:1.0)
         tweetText.layer.borderWidth = 0.5

@@ -3,7 +3,7 @@ import SwiftCop
 import SwiftyJSON
 import Alamofire
 
-class EditFirstViewController: UIViewController {
+class EditFirstViewController: UIViewController, UITextFieldDelegate {
     var delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     let swiftCop = SwiftCop()
     var email: String!
@@ -55,7 +55,7 @@ class EditFirstViewController: UIViewController {
     }
     
     func getUser() {
-        Alamofire.request(.GET, "http://localhost:9000/json/user/edit")
+        Alamofire.request(.GET, "\(Constant.url)/json/user/edit")
             .responseJSON { response in
                 
             guard let object = response.result.value else {
@@ -68,10 +68,29 @@ class EditFirstViewController: UIViewController {
             }
         }
     }
+    
+    // 他のところをタップしたらキーボードを隠す
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        //非表示にする。
+        if(emailText.isFirstResponder()){
+            emailText.resignFirstResponder()
+        }
+        if(passwordText.isFirstResponder()){
+            passwordText.resignFirstResponder()
+        }
+    }
+    // returnでキーボードを隠す
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        emailText.delegate = self
+        passwordText.delegate = self
         getUser()
         
         // バリデーションの出力

@@ -17,7 +17,7 @@ class FollowListViewController: UIViewController, UITableViewDataSource {
     }
     
     func getFollowList() {
-        Alamofire.request(.GET, "http://localhost:9000/json/follow/list")
+        Alamofire.request(.GET, "\(Constant.url)/json/follow/list")
             .responseJSON { response in
                 print(response.response)
                 
@@ -45,8 +45,8 @@ class FollowListViewController: UIViewController, UITableViewDataSource {
         let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cell")
         let follow = follows[indexPath.row]
         cell.textLabel?.text = follow["profile_text"]!
-        cell.textLabel?.font = UIFont(name: "Arial", size: 20)
-        cell.detailTextLabel?.text = follow["user_name"]!
+        cell.textLabel?.font = UIFont(name: "Arial", size: 24)
+        cell.detailTextLabel?.text = "@" + follow["user_name"]!!
         cell.detailTextLabel?.font = UIFont(name: "Arial", size: 16)
         cell.textLabel?.numberOfLines = 0
         cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping

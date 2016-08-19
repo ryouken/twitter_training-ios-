@@ -1,7 +1,7 @@
 import UIKit
 import SwiftCop
 
-class RegisterFirstViewController: UIViewController {
+class RegisterFirstViewController: UIViewController, UITextFieldDelegate {
     var delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     let swiftCop = SwiftCop()
     
@@ -44,8 +44,27 @@ class RegisterFirstViewController: UIViewController {
         self.passwordError.text = swiftCop.isGuilty(sender)?.verdict()
     }
     
+    // 他のところをタップしたらキーボードを隠す
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        //非表示にする。
+        if(emailText.isFirstResponder()){
+            emailText.resignFirstResponder()
+        }
+        if(passwordText.isFirstResponder()){
+            passwordText.resignFirstResponder()
+        }
+    }
+    // returnでキーボードを隠す
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        emailText.delegate = self
+        passwordText.delegate = self
         
         // バリデーションの出力
         swiftCop.addSuspect(Suspect(view:self.emailText, sentence: "emailの形式でご入力下さい。", trial: Trial.Email))

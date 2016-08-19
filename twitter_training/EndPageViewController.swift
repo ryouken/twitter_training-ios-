@@ -12,7 +12,7 @@ class EndPageViewController: UIViewController {
     }
     
     @IBAction func logoutButton(sender: AnyObject) {
-        Alamofire.request(.GET, "http://localhost:9000/json/user/logout")
+        Alamofire.request(.GET, "\(Constant.url)/json/user/logout")
             .responseJSON { response in
                 print(response.response) // URL response
                 

@@ -19,7 +19,7 @@ class UserListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func getUsers() {
-        Alamofire.request(.GET, "http://localhost:9000/json/user/list")
+        Alamofire.request(.GET, "\(Constant.url)/json/user/list")
             .responseJSON { response in
                 
                 guard let object = response.result.value else {
@@ -50,8 +50,8 @@ class UserListViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cell") // いつか落ちる。再利用。
         let user = users[indexPath.row]
         cell.textLabel?.text = user["profile_text"]!
-        cell.textLabel?.font = UIFont(name: "Arial", size: 20)
-        cell.detailTextLabel?.text = user["user_name"]!
+        cell.textLabel?.font = UIFont(name: "Arial", size: 24)
+        cell.detailTextLabel?.text = "@" + user["user_name"]!!
         cell.detailTextLabel?.font = UIFont(name: "Arial", size: 16)
         cell.textLabel?.numberOfLines = 0
         cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
@@ -68,7 +68,7 @@ class UserListViewController: UIViewController, UITableViewDataSource, UITableVi
             let json: [String : Int] = ["relation_id": 0, "followed_id": num!]
             
             // APIサーバーとのやり取り
-            Alamofire.request(.POST, "http://localhost:9000/json/follow/create", parameters: json, encoding: .JSON)
+            Alamofire.request(.POST, "\(Constant.url)/json/follow/create", parameters: json, encoding: .JSON)
                 .responseJSON { response in
                     print(response.response) // URL response
                     

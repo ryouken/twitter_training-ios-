@@ -2,7 +2,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-class LoginViewController: UIViewController  {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
@@ -12,15 +12,14 @@ class LoginViewController: UIViewController  {
         let password: String = passwordText.text!
         let json = ["email": email, "password": password]
         
-        Alamofire.request(.POST, "http://localhost:9000/json/user/authenticate", parameters: json, encoding: .JSON)
+        Alamofire.request(.POST, "\(Constant.url)/json/user/authenticate", parameters: json, encoding: .JSON)
             .responseJSON { response in
                 print(response.response) // URL response
-                
                 guard let object = response.result.value else {
                     return
                 }
-                
                 let json = JSON(object)
+                print(json)
                 json.forEach {(_, json) in
                     if (json == "login_success") {
                         // メインページへの画面遷移
@@ -38,9 +37,27 @@ class LoginViewController: UIViewController  {
             }
     }
     
+    // 他のところをタップしたらキーボードを隠す
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        //非表示にする。
+        if(emailText.isFirstResponder()){
+            emailText.resignFirstResponder()
+        }
+        if(passwordText.isFirstResponder()){
+            passwordText.resignFirstResponder()
+        }
+    }
+    // returnでキーボードを隠す
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        emailText.delegate = self
+        passwordText.delegate = self
     }
 
     override func didReceiveMemoryWarning() {

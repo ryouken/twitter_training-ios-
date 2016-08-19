@@ -3,7 +3,7 @@ import SwiftyJSON
 import Alamofire
 import SwiftCop
 
-class RegisterSecondViewController: UIViewController{
+class RegisterSecondViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     var delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     let swiftCop = SwiftCop()
 
@@ -31,13 +31,14 @@ class RegisterSecondViewController: UIViewController{
         let allGuiltiesMessage = swiftCop.allGuilties().map{ return $0.sentence}.joinWithSeparator("\n")
         
         if (allGuiltiesMessage.characters.count == 0) {
-            Alamofire.request(.POST, "http://localhost:9000/json/user/create", parameters: json, encoding: .JSON)
+            Alamofire.request(.POST, "\(Constant.url)/json/user/create", parameters: json, encoding: .JSON)
                 .responseJSON { response in
                     print(response.response) // URL response
                     guard let object = response.result.value else {
                         return
                     }
                     let json = JSON(object)
+                    print(json)
                     
                     json.forEach {(_, json) in
                         if (json == "create_success") {
@@ -74,8 +75,27 @@ class RegisterSecondViewController: UIViewController{
         self.nameError.text = swiftCop.isGuilty(sender)?.verdict()
     }
     
+    // 他のところをタップしたらキーボードを隠す
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        //非表示にする。
+        if(nameText.isFirstResponder()){
+            nameText.resignFirstResponder()
+        }
+        if(profileText.isFirstResponder()){
+            profileText.resignFirstResponder()
+        }
+    }
+    // returnでキーボードを隠す
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameText.delegate = self
+        profileText.delegate = self
         
         // バリデーションの出力
         swiftCop.addSuspect(Suspect(view:self.nameText, sentence: "2文字以上でご入力下さい。", trial: Trial.Length(.Minimum, 2)))

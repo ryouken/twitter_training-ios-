@@ -36,7 +36,7 @@
 		EB74CB241D627B38002AE80C /* tweet_button_0816073313.png in Resources */ = {isa = PBXBuildFile; fileRef = EB74CB231D627B38002AE80C /* tweet_button_0816073313.png */; };
 		EB74CB261D627F2E002AE80C /* EndPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB251D627F2E002AE80C /* EndPageViewController.swift */; };
 		EB74CB281D629FEE002AE80C /* HttpRequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB271D629FEE002AE80C /* HttpRequestMethod.swift */; };
-		EB74CB2C1D642A31002AE80C /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB2B1D642A31002AE80C /* URL.swift */; };
+		EB74CB2C1D642A31002AE80C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB2B1D642A31002AE80C /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,7 +98,7 @@
 		EB74CB231D627B38002AE80C /* tweet_button_0816073313.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tweet_button_0816073313.png; path = ../../../../Downloads/tweet_button_0816073313.png; sourceTree = "<group>"; };
 		EB74CB251D627F2E002AE80C /* EndPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPageViewController.swift; sourceTree = "<group>"; };
 		EB74CB271D629FEE002AE80C /* HttpRequestMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestMethod.swift; sourceTree = "<group>"; };
-		EB74CB2B1D642A31002AE80C /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		EB74CB2B1D642A31002AE80C /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,7 +179,7 @@
 				EB74CB1F1D61D769002AE80C /* CAPSPageMenu.swift */,
 				EB74CB231D627B38002AE80C /* tweet_button_0816073313.png */,
 				EB74CB271D629FEE002AE80C /* HttpRequestMethod.swift */,
-				EB74CB2B1D642A31002AE80C /* URL.swift */,
+				EB74CB2B1D642A31002AE80C /* Constant.swift */,
 			);
 			path = twitter_training;
 			sourceTree = "<group>";
@@ -301,6 +301,7 @@
 				TargetAttributes = {
 					CB963AD71D5C723A00A21C9F = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = TZ3Y99ZW32;
 					};
 					CB963AEB1D5C723A00A21C9F = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -505,7 +506,7 @@
 				EB74CB161D5DDC26002AE80C /* TimelineViewController.swift in Sources */,
 				EB74CB121D5DDBA1002AE80C /* FollowListViewController.swift in Sources */,
 				EB74CB1E1D612F43002AE80C /* PlaceHolderViewController.swift in Sources */,
-				EB74CB2C1D642A31002AE80C /* URL.swift in Sources */,
+				EB74CB2C1D642A31002AE80C /* Constant.swift in Sources */,
 				CB963ADC1D5C723A00A21C9F /* AppDelegate.swift in Sources */,
 				CB963B0A1D5C736B00A21C9F /* InitialPageViewController.swift in Sources */,
 				EB74CB221D61D7F1002AE80C /* PageMenuViewController.swift in Sources */,
@@ -651,10 +652,14 @@
 			baseConfigurationReference = 20924E61CC58682D1BFC62B2 /* Pods-twitter_training.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = twitter_training/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.bizreach.twitter-training";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -663,10 +668,14 @@
 			baseConfigurationReference = CA0F735D625FB83861C5CA40 /* Pods-twitter_training.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = twitter_training/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.bizreach.twitter-training";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
