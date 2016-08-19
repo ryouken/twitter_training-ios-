@@ -15,6 +15,7 @@ class UserListViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableViewAutomaticDimension
         getUsers()
+        print("userList:" + users.description)
     }
     
     func getUsers() {
@@ -26,6 +27,7 @@ class UserListViewController: UIViewController, UITableViewDataSource, UITableVi
                 }
                 
                 let json = JSON(object)
+                print(json)
                 json.forEach { (_, json) in
                     json.forEach { (_, user) in
                     let user: [String: String?] = [
@@ -63,10 +65,9 @@ class UserListViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let defaultAction = UIAlertAction(title: "フォロー", style: UIAlertActionStyle.Default, handler: { action in
             let num : Int? = user["user_id"]!.flatMap{ Int($0) }
-            print(num)
             let json: [String : Int] = ["relation_id": 0, "followed_id": num!]
-            print(json)
             
+            // APIサーバーとのやり取り
             Alamofire.request(.POST, "http://localhost:9000/json/follow/create", parameters: json, encoding: .JSON)
                 .responseJSON { response in
                     print(response.response) // URL response

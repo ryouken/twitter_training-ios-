@@ -7,16 +7,15 @@ class InitialPageViewController: UIViewController {
         // 会員登録ページ(1)への画面遷移
         let storyboard: UIStoryboard = self.storyboard!
         let nextVC = storyboard.instantiateViewControllerWithIdentifier("RegisterFirst") as! RegisterFirstViewController
-        self.presentViewController(nextVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @IBAction func LoginButton(sender: AnyObject) {
         // ログインページへの画面遷移
         let storyboard: UIStoryboard = self.storyboard!
         let nextVC = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
-        self.presentViewController(nextVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

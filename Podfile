@@ -8,6 +8,7 @@ target 'twitter_training' do
   pod 'SwiftyJSON'
   pod 'SwiftValidator'
   pod 'PageMenu'
+  pod 'SwiftCop'
 
   # Pods for twitter_training
 

@@ -23,8 +23,8 @@ class EndPageViewController: UIViewController {
                 let json = JSON(object)
                 json.forEach {(_, json) in
                     if (json == "logout_success") {
-                        // 会員一覧ページへの画面遷移
-                        let storyboard: UIStoryboard = self.storyboard!
+                        // InitialPageへの画面遷移
+                        let storyboard = self.storyboard!
                         let nextVC = storyboard.instantiateViewControllerWithIdentifier("InitialPage") as! InitialPageViewController
                         self.presentViewController(nextVC, animated: true, completion: nil)
                     } else {

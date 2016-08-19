@@ -28,9 +28,11 @@ class LoginViewController: UIViewController  {
                         let nextVC = storyboard.instantiateViewControllerWithIdentifier("PageMenu") as! PageMenuViewController
                         self.presentViewController(nextVC, animated: true, completion: nil)
                     } else {
-                        let alertLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,50))
-                        alertLabel.text = "ログイン認証に失敗しました。emailかpasswordが間違っています。"
-                        self.view.addSubview(alertLabel)
+                        let alert: UIAlertController = UIAlertController(title: "エラー", message: "入力情報が間違っています。", preferredStyle:  UIAlertControllerStyle.Alert)
+                        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{ action in
+                        })
+                        alert.addAction(defaultAction)
+                        self.presentViewController(alert, animated: true, completion: nil)
                     }
                 }
             }
