@@ -15,10 +15,9 @@ class EditFirstViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func backButton(sender: AnyObject) {
         // メインページへの画面遷移
-        let storyboard = self.storyboard!
-        let nextVC = storyboard.instantiateViewControllerWithIdentifier("PageMenu") as! PageMenuViewController
-        self.presentViewController(nextVC, animated: true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
     @IBAction func nextButton(sender: AnyObject) {
         self.delegate.emailText = emailText
         self.delegate.passwordText = passwordText
@@ -33,6 +32,7 @@ class EditFirstViewController: UIViewController, UITextFieldDelegate {
             // 会員編集(2)への画面遷移
             let storyboard = self.storyboard!
             let nextVC = storyboard.instantiateViewControllerWithIdentifier("EditSecond") as! EditSecondViewController
+            nextVC.editFirstVC = self
             self.presentViewController(nextVC, animated: true, completion: nil)
         } else {
             

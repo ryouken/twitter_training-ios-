@@ -6,12 +6,17 @@ import SwiftCop
 class EditSecondViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     var delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     let swiftCop = SwiftCop()
+    var editFirstVC: EditFirstViewController!
     var default_user_name: String!
     var default_profile_text: String!
 
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var profileText: PlaceHolderTextView!
     @IBOutlet weak var nameError: UILabel!
+    
+    @IBAction func backButton(sender: AnyObject) {
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
     
     @IBAction func editButton(sender: AnyObject) {
         let email = delegate.emailText.text!
@@ -32,7 +37,7 @@ class EditSecondViewController: UIViewController, UITextFieldDelegate, UITextVie
     func validateAction(json: [String: AnyObject]) {
         let allGuiltiesMessage = swiftCop.allGuilties().map{ return $0.sentence}.joinWithSeparator("\n")
         
-        if (allGuiltiesMessage.characters.count == 0) {
+        if (allGuiltiesMessage.characters.count == 0 && profileText.text.characters.count <= Constant.max) {
             Alamofire.request(.PUT, "\(Constant.url)/json/user/update", parameters: json, encoding: .JSON)
                 .responseJSON { response in
                     print(response.response) // URL response
@@ -47,9 +52,8 @@ class EditSecondViewController: UIViewController, UITextFieldDelegate, UITextVie
                     json.forEach {(_, json) in
                         if (json == "update_success") {
                             // メインページへ画面遷移
-                            let storyboard = self.storyboard!
-                            let nextVC = storyboard.instantiateViewControllerWithIdentifier("PageMenu") as! PageMenuViewController
-                            self.presentViewController(nextVC, animated: true, completion: nil)
+                            self.dismissViewControllerAnimated(false, completion: nil)
+                            self.editFirstVC.dismissViewControllerAnimated(false, completion: nil)
                         } else {
                             let alertLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,50))
                             alertLabel.text = "会員情報編集に失敗しました。"
@@ -120,6 +124,7 @@ class EditSecondViewController: UIViewController, UITextFieldDelegate, UITextVie
         getUser()
         
         // バリデーションの出力
+        swiftCop.addSuspect(Suspect(view:self.nameText, sentence: "2文字以上でご入力下さい。", trial: Trial.Length(.Minimum, 2)))
         swiftCop.addSuspect(Suspect(view:self.nameText, sentence: "20文字以内でご入力下さい。", trial: Trial.Length(.Maximum, 20)))
         
         // プロフィールのTextAreaをTextFieldと同じ設定に。

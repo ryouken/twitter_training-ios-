@@ -3,11 +3,13 @@ import UIKit
 class PageMenuViewController: UIViewController {
     
     var pageMenu: CAPSPageMenu?
+    var myTweetVC: MyTweetViewController!
     
     @IBAction func tweetButton(sender: AnyObject) {
         // ツイートページの画面遷移
         let storyboard = self.storyboard!
         let nextVC = storyboard.instantiateViewControllerWithIdentifier("Tweet") as! TweetViewController
+        nextVC.myTweetVC = myTweetVC
         self.presentViewController(nextVC, animated: true, completion: nil)
     }
     
@@ -18,7 +20,7 @@ class PageMenuViewController: UIViewController {
         var controllerArray: [UIViewController] = []
         
         // 追加するViewを作成
-        let UserListVC = self.storyboard!.instantiateViewControllerWithIdentifier("UserList")
+        let UserListVC = self.storyboard!.instantiateViewControllerWithIdentifier("UserList") as! UserListViewController
         UserListVC.title = "UserList"
         controllerArray.append(UserListVC)
         
@@ -26,13 +28,17 @@ class PageMenuViewController: UIViewController {
         TimelineVC.title = "Timeline"
         controllerArray.append(TimelineVC)
         
+        
         let MyTweetVC = self.storyboard!.instantiateViewControllerWithIdentifier("MyTweet")
         MyTweetVC.title = "MyTweet"
         controllerArray.append(MyTweetVC)
+        myTweetVC = MyTweetVC as! MyTweetViewController
         
         let FollowListVC = self.storyboard!.instantiateViewControllerWithIdentifier("FollowList")
         FollowListVC.title = "FollowList"
         controllerArray.append(FollowListVC)
+        UserListVC.timelineVC = TimelineVC as! TimelineViewController
+        UserListVC.followListVC = FollowListVC as! FollowListViewController
         
         let FollowedListVC = self.storyboard!.instantiateViewControllerWithIdentifier("FollowedList")
         FollowedListVC.title = "FollowedList"
@@ -41,6 +47,7 @@ class PageMenuViewController: UIViewController {
         let EndPageVC = self.storyboard!.instantiateViewControllerWithIdentifier("EndPage")
         EndPageVC.title = "Settings"
         controllerArray.append(EndPageVC)
+        (EndPageVC as! EndPageViewController).pageMenuVC = self
         
         // PageMenuの設定
         let parameters: [CAPSPageMenuOption] = [

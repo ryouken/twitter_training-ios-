@@ -27,7 +27,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="新規会員登録"/>
+                                <state key="normal" title="新規会員登録">
+                                    <color key="titleColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="25"/>
@@ -39,14 +41,14 @@
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                        <color key="value" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="registerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AR3-Gf-gNP"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Twitter!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgH-sl-XPf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ツッコんでー" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgH-sl-XPf">
                                 <rect key="frame" x="7" y="150" width="307" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -61,7 +63,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="ログイン">
-                                    <color key="titleColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -79,7 +81,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.49690271229664473" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iOD-XS-0sz" secondAttribute="bottom" constant="100" id="E7J-Hq-ZHr"/>
                             <constraint firstItem="BgH-sl-XPf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="130" id="YE1-es-TfY"/>
@@ -116,7 +118,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="ログイン">
-                                    <color key="titleColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -158,7 +160,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="4H5-Xy-Ygz" firstAttribute="top" secondItem="6c8-TM-8vo" secondAttribute="bottom" constant="100" id="0bB-M3-Gn1"/>
                             <constraint firstAttribute="bottom" secondItem="P4y-ol-NSc" secondAttribute="bottom" constant="100" id="9tm-Zs-ovi"/>
@@ -210,7 +212,7 @@
                                     <constraint firstAttribute="width" constant="300" id="wuD-ug-HnD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="validatePassword:" destination="6oT-Xp-qg7" eventType="editingChanged" id="zXn-cq-800"/>
                                 </connections>
@@ -236,7 +238,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Next"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1"/>
@@ -262,7 +266,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="HVI-FF-j9z" secondAttribute="bottom" constant="110" id="3GW-as-0Kv"/>
                             <constraint firstItem="HUu-W3-O3V" firstAttribute="leading" secondItem="7W7-Lc-MJE" secondAttribute="leadingMargin" constant="30" id="4gD-Y4-jbE"/>
@@ -324,6 +328,165 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="itI-qk-lGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="822" y="93"/>
+        </scene>
+        <!--Reply View Controller-->
+        <scene sceneID="PBg-sK-abn">
+            <objects>
+                <viewController storyboardIdentifier="Reply" id="cGh-Em-pzH" customClass="ReplyViewController" customModule="twitter_training" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5P2-MZ-hiA"/>
+                        <viewControllerLayoutGuide type="bottom" id="LY5-dl-6K7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qgD-hf-jD9" customClass="R">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ツッコむぺーじ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ej-be-2Ud">
+                                <rect key="frame" x="74" y="148" width="173" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IVD-Hk-nkB" customClass="PlaceHolderTextView" customModule="twitter_training" customModuleProvider="target">
+                                <rect key="frame" x="49" y="220" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Dd2-TC-Ldb"/>
+                                    <constraint firstAttribute="width" constant="300" id="V89-XL-xvQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYk-sP-D1G" customClass="ButtonCustom" customModule="twitter_training" customModuleProvider="target">
+                                <rect key="frame" x="42" y="413" width="46" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="U1B-Jl-230"/>
+                                    <constraint firstAttribute="width" constant="80" id="x3p-MV-Fjw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backButton:" destination="cGh-Em-pzH" eventType="touchUpInside" id="pBD-im-0Dp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7b-BH-PJm" customClass="ButtonCustom" customModule="twitter_training" customModuleProvider="target">
+                                <rect key="frame" x="201" y="413" width="46" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Ey2-2q-bpc"/>
+                                    <constraint firstAttribute="height" constant="40" id="HIy-2U-vQ8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="ツッコむ">
+                                    <color key="titleColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="replyButton:" destination="cGh-Em-pzH" eventType="touchUpInside" id="e9c-TW-QGT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="LY5-dl-6K7" firstAttribute="top" secondItem="yYk-sP-D1G" secondAttribute="bottom" constant="110" id="Fyh-u5-eja"/>
+                            <constraint firstAttribute="trailing" secondItem="K7b-BH-PJm" secondAttribute="trailing" constant="80" id="U8Q-pb-Cq9"/>
+                            <constraint firstItem="IVD-Hk-nkB" firstAttribute="centerX" secondItem="qgD-hf-jD9" secondAttribute="centerX" id="YF9-bF-cxe"/>
+                            <constraint firstItem="1Ej-be-2Ud" firstAttribute="centerX" secondItem="qgD-hf-jD9" secondAttribute="centerX" id="fTZ-rw-s8P"/>
+                            <constraint firstItem="LY5-dl-6K7" firstAttribute="top" secondItem="K7b-BH-PJm" secondAttribute="bottom" constant="110" id="ifI-IZ-4lF"/>
+                            <constraint firstItem="1Ej-be-2Ud" firstAttribute="top" secondItem="5P2-MZ-hiA" secondAttribute="bottom" constant="100" id="nMY-cy-QDa"/>
+                            <constraint firstItem="yYk-sP-D1G" firstAttribute="leading" secondItem="qgD-hf-jD9" secondAttribute="leading" constant="80" id="rQP-2c-nf9"/>
+                            <constraint firstItem="IVD-Hk-nkB" firstAttribute="top" secondItem="1Ej-be-2Ud" secondAttribute="bottom" constant="50" id="viS-NQ-moi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="replyText" destination="IVD-Hk-nkB" id="zGD-NR-1YH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VLg-EE-CMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="822" y="728"/>
+        </scene>
+        <!--Reply List View Controller-->
+        <scene sceneID="BaE-Dh-luR">
+            <objects>
+                <viewController storyboardIdentifier="ReplyList" id="V8B-bS-zif" customClass="ReplyListViewController" customModule="twitter_training" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sro-qT-97H"/>
+                        <viewControllerLayoutGuide type="bottom" id="UIM-cC-AwB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g3p-Jt-Y8h">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kSi-hx-VUS">
+                                <rect key="frame" x="0.0" y="210" width="320" height="359"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8i-VD-ftf">
+                                <rect key="frame" x="20" y="28" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4Uz-Qr-Vag"/>
+                                    <constraint firstAttribute="width" constant="60" id="iz3-dL-MKZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="&lt; Back"/>
+                                <connections>
+                                    <action selector="backButton:" destination="V8B-bS-zif" eventType="touchUpInside" id="TGx-Hn-TZ6"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kwr-3s-1Xb">
+                                <rect key="frame" x="40" y="74" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kwr-3s-1Xb" firstAttribute="leading" secondItem="g3p-Jt-Y8h" secondAttribute="leading" constant="20" id="63U-Uf-MY4"/>
+                            <constraint firstItem="UIM-cC-AwB" firstAttribute="top" secondItem="kSi-hx-VUS" secondAttribute="bottom" id="HvP-2M-VRf"/>
+                            <constraint firstAttribute="trailing" secondItem="kwr-3s-1Xb" secondAttribute="trailing" constant="20" id="IJH-QD-gaw"/>
+                            <constraint firstItem="kwr-3s-1Xb" firstAttribute="centerX" secondItem="g3p-Jt-Y8h" secondAttribute="centerX" id="LKo-mU-nNV"/>
+                            <constraint firstItem="J8i-VD-ftf" firstAttribute="top" secondItem="sro-qT-97H" secondAttribute="bottom" constant="10" id="O4x-aj-fPL"/>
+                            <constraint firstItem="J8i-VD-ftf" firstAttribute="leading" secondItem="g3p-Jt-Y8h" secondAttribute="leading" constant="5" id="R2H-Wk-kaz"/>
+                            <constraint firstItem="kSi-hx-VUS" firstAttribute="leading" secondItem="g3p-Jt-Y8h" secondAttribute="leading" id="TPF-FN-pJf"/>
+                            <constraint firstAttribute="trailing" secondItem="kSi-hx-VUS" secondAttribute="trailing" id="kUG-Um-b4B"/>
+                            <constraint firstItem="kwr-3s-1Xb" firstAttribute="top" secondItem="J8i-VD-ftf" secondAttribute="bottom" constant="30" id="oYm-n3-Gt5"/>
+                            <constraint firstItem="kSi-hx-VUS" firstAttribute="top" secondItem="kwr-3s-1Xb" secondAttribute="bottom" constant="30" id="pqf-hn-4WA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="kSi-hx-VUS" id="p3r-DS-DUa"/>
+                        <outlet property="textView" destination="kwr-3s-1Xb" id="Yuk-ha-2AO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sbo-63-xqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1182" y="728"/>
         </scene>
         <!--My Tweet View Controller-->
         <scene sceneID="hZb-Mg-xVY">
@@ -411,8 +574,8 @@
                                     <constraint firstAttribute="height" constant="40" id="G9I-hI-9HB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="ツイート">
-                                    <color key="titleColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="ボケる">
+                                    <color key="titleColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -439,7 +602,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet Page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pus-pD-10v">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ボケるぺーじ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pus-pD-10v">
                                 <rect key="frame" x="70" y="120" width="181" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -454,7 +617,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Back">
-                                    <color key="titleColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -472,7 +635,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="x2T-lj-H3h" firstAttribute="leading" secondItem="dV7-OB-yqN" secondAttribute="leading" constant="50" id="DrJ-Fm-Zcc"/>
                             <constraint firstItem="Pus-pD-10v" firstAttribute="top" secondItem="yQG-g0-Tfd" secondAttribute="bottom" constant="100" id="Guh-RR-QRA"/>
@@ -624,7 +787,7 @@
                                     <constraint firstAttribute="height" constant="40" id="eNi-BQ-AOw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="validatePassword:" destination="C0L-1f-ut1" eventType="editingChanged" id="HFs-Fx-qjw"/>
                                 </connections>
@@ -638,7 +801,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Next"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1"/>
@@ -678,7 +843,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Back">
-                                    <color key="titleColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -702,7 +867,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="nHH-d7-QSF" firstAttribute="top" secondItem="4wK-l3-dQ8" secondAttribute="bottom" constant="10" id="7Z0-pT-GgJ"/>
                             <constraint firstItem="4wK-l3-dQ8" firstAttribute="leading" secondItem="5R9-Jz-d9e" secondAttribute="leading" constant="40" id="9VZ-C2-OJg"/>
@@ -753,7 +918,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="登録">
-                                    <color key="titleColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -805,7 +970,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="xc2-C4-uzG" firstAttribute="top" secondItem="WJE-A2-owN" secondAttribute="bottom" constant="30" id="7IH-9w-qfc"/>
                             <constraint firstItem="7oL-65-GLA" firstAttribute="top" secondItem="cXM-Wy-aFh" secondAttribute="bottom" constant="30" id="J02-zp-Cov"/>
@@ -845,12 +1010,12 @@
                                 <rect key="frame" x="300" y="600" width="50" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="8dK-gC-smn"/>
-                                    <constraint firstAttribute="height" constant="30" id="OCO-gZ-TXE"/>
+                                    <constraint firstAttribute="width" constant="55" id="8dK-gC-smn"/>
+                                    <constraint firstAttribute="height" constant="35" id="OCO-gZ-TXE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="編集">
-                                    <color key="titleColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -901,18 +1066,46 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08q-v6-kzD" customClass="ButtonCustom" customModule="twitter_training" customModuleProvider="target">
+                                <rect key="frame" x="35" y="552" width="46" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="9uP-wE-bJZ"/>
+                                    <constraint firstAttribute="height" constant="35" id="aCy-PE-j1e"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backButton:" destination="bHV-h9-BV2" eventType="touchUpInside" id="5Ap-zL-uQa"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="aVt-dz-uw8" firstAttribute="centerX" secondItem="Edf-5C-XYs" secondAttribute="centerX" id="8kY-ny-Bh1"/>
                             <constraint firstItem="GAV-Sy-lu6" firstAttribute="top" secondItem="aVt-dz-uw8" secondAttribute="bottom" constant="30" id="IaM-6C-n8b"/>
                             <constraint firstItem="pG9-Qp-LRr" firstAttribute="top" secondItem="GAV-Sy-lu6" secondAttribute="bottom" constant="10" id="JxY-tN-q4a"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wWk-an-yOk" secondAttribute="trailing" constant="50" id="Mt8-F0-Tfz"/>
                             <constraint firstItem="GAV-Sy-lu6" firstAttribute="leading" secondItem="Edf-5C-XYs" secondAttribute="leading" constant="35" id="WYY-m1-kfb"/>
+                            <constraint firstItem="08q-v6-kzD" firstAttribute="leading" secondItem="Edf-5C-XYs" secondAttribute="leading" constant="50" id="Xi9-yw-KdR"/>
                             <constraint firstAttribute="bottom" secondItem="wWk-an-yOk" secondAttribute="bottom" constant="100" id="YMs-Ve-tfD"/>
                             <constraint firstItem="Bnt-nN-11K" firstAttribute="top" secondItem="pG9-Qp-LRr" secondAttribute="bottom" constant="30" id="c3S-jc-Szp"/>
                             <constraint firstItem="Bnt-nN-11K" firstAttribute="centerX" secondItem="Edf-5C-XYs" secondAttribute="centerX" id="qbx-LJ-85i"/>
                             <constraint firstItem="pG9-Qp-LRr" firstAttribute="centerX" secondItem="Edf-5C-XYs" secondAttribute="centerX" id="sfS-2U-7u0"/>
+                            <constraint firstAttribute="bottom" secondItem="08q-v6-kzD" secondAttribute="bottom" constant="100" id="tpc-Ia-07u"/>
                             <constraint firstItem="aVt-dz-uw8" firstAttribute="top" secondItem="UFR-qI-a9o" secondAttribute="bottom" constant="50" id="wIN-DR-jxc"/>
                         </constraints>
                     </view>
@@ -947,7 +1140,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="会員情報編集"/>
+                                <state key="normal" title="会員情報編集">
+                                    <color key="titleColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="25"/>
@@ -975,7 +1170,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="ログアウト">
-                                    <color key="titleColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -999,7 +1194,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.49690271229999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="gO7-sb-aOC" firstAttribute="centerX" secondItem="kvh-Yt-KtE" secondAttribute="centerX" id="LfQ-Yt-XWK"/>
                             <constraint firstItem="gO7-sb-aOC" firstAttribute="top" secondItem="Z46-Cq-lP7" secondAttribute="bottom" constant="130" id="O8t-tK-8Ot"/>

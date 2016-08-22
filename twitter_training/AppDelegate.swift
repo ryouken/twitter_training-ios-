@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  twitter_training
-//
-//  Created by 小島領剣 on 2016/08/11.
-//  Copyright © 2016年 Ryouken Kojima. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain

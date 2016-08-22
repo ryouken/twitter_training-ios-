@@ -25,7 +25,9 @@ class MyTweetViewController: UIViewController, UITableViewDataSource {
                     return
                 }
                 
+                self.tweets.removeAll()
                 let json = JSON(object)
+                print(json)
                 json.forEach { (_, json) in
                     json.forEach { (_, tweet) in
                         let tweet: [String: String?] = [
@@ -35,7 +37,7 @@ class MyTweetViewController: UIViewController, UITableViewDataSource {
                         self.tweets.append(tweet)
                     }
                 }
-                self.tableView.reloadData()
+            self.tableView.reloadData()
         }
     }
     

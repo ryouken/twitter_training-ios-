@@ -6,13 +6,13 @@ class FollowListViewController: UIViewController, UITableViewDataSource {
     var pageMenu : CAPSPageMenu?
     var follows: [[String: String?]] = []
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.estimatedRowHeight = 80
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView!.dataSource = self
+        tableView!.estimatedRowHeight = 80
+        tableView!.rowHeight = UITableViewAutomaticDimension
         getFollowList()
     }
     
@@ -25,6 +25,7 @@ class FollowListViewController: UIViewController, UITableViewDataSource {
                     return
                 }
                 
+                self.follows.removeAll()
                 let json = JSON(object)
                 json.forEach { (_, follow) in
                     let follow: [String: String?] = [
@@ -33,7 +34,7 @@ class FollowListViewController: UIViewController, UITableViewDataSource {
                     ]
                     self.follows.append(follow)
                 }
-                self.tableView.reloadData()
+            self.tableView?.reloadData()
         }
     }
     

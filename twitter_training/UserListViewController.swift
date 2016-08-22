@@ -4,6 +4,8 @@ import SwiftyJSON
 
 class UserListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var pageMenu: CAPSPageMenu?
+    var timelineVC: TimelineViewController!
+    var followListVC: FollowListViewController!
     var users: [[String: String?]] = [] // usersのcase class的なものをつくる
     
     @IBOutlet weak var tableView: UITableView!
@@ -15,7 +17,6 @@ class UserListViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableViewAutomaticDimension
         getUsers()
-        print("userList:" + users.description)
     }
     
     func getUsers() {
@@ -25,7 +26,7 @@ class UserListViewController: UIViewController, UITableViewDataSource, UITableVi
                 guard let object = response.result.value else {
                     return
                 }
-                
+                self.users.removeAll()
                 let json = JSON(object)
                 print(json)
                 json.forEach { (_, json) in
@@ -64,7 +65,7 @@ class UserListViewController: UIViewController, UITableViewDataSource, UITableVi
         let alert = UIAlertController(title: user["user_name"]!, message: "フォローしますか？", preferredStyle:  UIAlertControllerStyle.Alert)
         
         let defaultAction = UIAlertAction(title: "フォロー", style: UIAlertActionStyle.Default, handler: { action in
-            let num : Int? = user["user_id"]!.flatMap{ Int($0) }
+            let num: Int? = user["user_id"]!.flatMap{ Int($0) }
             let json: [String : Int] = ["relation_id": 0, "followed_id": num!]
             
             // APIサーバーとのやり取り
@@ -79,10 +80,9 @@ class UserListViewController: UIViewController, UITableViewDataSource, UITableVi
                     let json = JSON(object)
                     json.forEach {(_, json) in
                         if (json == "create_success") {
-                            // メインページへの画面遷移
-                            let storyboard = self.storyboard!
-                            let nextVC = storyboard.instantiateViewControllerWithIdentifier("PageMenu") as! PageMenuViewController
-                            self.presentViewController(nextVC, animated: true, completion: nil)
+                            self.getUsers()
+                            self.timelineVC.getTimeline()
+                            self.followListVC.getFollowList()
                         } else {
                             let alertLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,50))
                             alertLabel.text = "フォローに失敗しました。"
