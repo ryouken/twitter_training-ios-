@@ -7,12 +7,14 @@ class EndPageViewController: UIViewController {
     var pageMenuVC: PageMenuViewController!
 
     @IBAction func editButton(sender: AnyObject) {
+        // TODO: 画面遷移共通化
         // 会員情報編集ページの画面遷移
         let storyboard = self.storyboard!
         let nextVC = storyboard.instantiateViewControllerWithIdentifier("EditFirst") as! EditFirstViewController
         self.presentViewController(nextVC, animated: true, completion: nil)
     }
     
+    // TODO: getメソッド共通化
     @IBAction func logoutButton(sender: AnyObject) {
         Alamofire.request(.GET, "\(Constant.url)/json/user/logout")
             .responseJSON { response in

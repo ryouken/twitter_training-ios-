@@ -38,7 +38,6 @@ class ReplyListViewController: UIViewController, UITableViewDataSource {
                 self.replies.removeAll()
                 let json = JSON(object)
                 print(json)
-//                json.forEach { (_, json) in
                     json.forEach { (_, reply) in
                         let reply: [String: String?] = [
                             "reply_id": reply["reply_id"].string,
@@ -47,7 +46,6 @@ class ReplyListViewController: UIViewController, UITableViewDataSource {
                         ]
                         self.replies.append(reply)
                     }
-//                }
             self.tableView.reloadData()
         }
     }

@@ -2,7 +2,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class UserListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class UserListViewController: UIViewController {
     var pageMenu: CAPSPageMenu?
     var timelineVC: TimelineViewController!
     var followListVC: FollowListViewController!
@@ -19,6 +19,7 @@ class UserListViewController: UIViewController, UITableViewDataSource, UITableVi
         getUsers()
     }
     
+    // TODO: getメソッド共通化
     func getUsers() {
         Alamofire.request(.GET, "\(Constant.url)/json/user/list")
             .responseJSON { response in
@@ -42,6 +43,10 @@ class UserListViewController: UIViewController, UITableViewDataSource, UITableVi
             self.tableView.reloadData()
         }
     }
+    
+}
+
+extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
@@ -79,6 +84,7 @@ class UserListViewController: UIViewController, UITableViewDataSource, UITableVi
                     
                     let json = JSON(object)
                     json.forEach {(_, json) in
+                        // TODO: 文字列判定おかしい
                         if (json == "create_success") {
                             self.getUsers()
                             self.timelineVC.getTimeline()

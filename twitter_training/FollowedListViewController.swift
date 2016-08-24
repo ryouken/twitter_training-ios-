@@ -2,8 +2,11 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-class FollowedListViewController: UIViewController, UITableViewDataSource {
-    var pageMenu : CAPSPageMenu?
+class FollowedListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    var pageMenu: CAPSPageMenu?
+    var userListVC: UserListViewController!
+    var timelineVC: TimelineViewController!
+    var followListVC: FollowListViewController!
     var follows: [[String: String?]] = []
     
     @IBOutlet weak var tableView: UITableView!
@@ -11,6 +14,7 @@ class FollowedListViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableViewAutomaticDimension
         getFollowedList()
@@ -28,6 +32,7 @@ class FollowedListViewController: UIViewController, UITableViewDataSource {
                 let json = JSON(object)
                 json.forEach { (_, follow) in
                     let follow: [String: String?] = [
+                        "user_id": follow["user_id"].description,
                         "user_name": follow["user_name"].string,
                         "profile_text": follow["profile_text"].string
                     ]
@@ -54,6 +59,46 @@ class FollowedListViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
-    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
+        let follow = follows[indexPath.row]
+        
+        let alert = UIAlertController(title: follow["user_name"]!, message: "フォローしますか？", preferredStyle:  UIAlertControllerStyle.Alert)
+        
+        let defaultAction = UIAlertAction(title: "フォロー", style: UIAlertActionStyle.Default, handler: { action in
+            let num: Int? = follow["user_id"]!.flatMap{ Int($0) }
+            let json: [String : Int] = ["relation_id": 0, "followed_id": num!]
+            
+            // APIサーバーとのやり取り
+            Alamofire.request(.POST, "\(Constant.url)/json/follow/create", parameters: json, encoding: .JSON)
+                .responseJSON { response in
+                    print(response.response) // URL response
+                    
+                    guard let object = response.result.value else {
+                        return
+                    }
+                    
+                    let json = JSON(object)
+                    json.forEach {(_, json) in
+                        if (json == "create_success") {
+                            self.userListVC.getUsers()
+                            self.timelineVC.getTimeline()
+                            self.followListVC.getFollowList()
+                        } else {
+                            let alertLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,50))
+                            alertLabel.text = "フォローに失敗しました。"
+                            self.view.addSubview(alertLabel)
+                        }
+                    }
+            }
+        })
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.Cancel, handler:{ action in
+        })
+        
+        alert.addAction(cancelAction)
+        alert.addAction(defaultAction)
+        
+        presentViewController(alert, animated: true, completion: nil)
+    }
     
 }

@@ -44,6 +44,7 @@ class TweetViewController: UIViewController, UITextViewDelegate {
                     }
                 }
         } else {
+            // TODO: アラート共通化
             let alert: UIAlertController = UIAlertController(title: "エラー", message: "適切な文字数で入力して下さい。", preferredStyle:  UIAlertControllerStyle.Alert)
             let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{ action in
             })
@@ -53,6 +54,7 @@ class TweetViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    // TODO: キーボード共通化
     // 他のところをタップしたらキーボードを隠す
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //非表示にする。
@@ -66,6 +68,7 @@ class TweetViewController: UIViewController, UITextViewDelegate {
         
         tweetText.delegate = self
         
+        // TODO: プレースホルダー共通化
         tweetText.placeHolder = "最近あった面白いことをつぶやこう！"
         tweetText.placeHolderColor = UIColor(red:0.76, green:0.76, blue:0.76, alpha:1.0)
         tweetText.layer.borderWidth = 0.5

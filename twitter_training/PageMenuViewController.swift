@@ -6,6 +6,7 @@ class PageMenuViewController: UIViewController {
     var myTweetVC: MyTweetViewController!
     
     @IBAction func tweetButton(sender: AnyObject) {
+        // TODO: 画面遷移共通化
         // ツイートページの画面遷移
         let storyboard = self.storyboard!
         let nextVC = storyboard.instantiateViewControllerWithIdentifier("Tweet") as! TweetViewController
@@ -40,9 +41,12 @@ class PageMenuViewController: UIViewController {
         UserListVC.timelineVC = TimelineVC as! TimelineViewController
         UserListVC.followListVC = FollowListVC as! FollowListViewController
         
-        let FollowedListVC = self.storyboard!.instantiateViewControllerWithIdentifier("FollowedList")
+        let FollowedListVC = self.storyboard!.instantiateViewControllerWithIdentifier("FollowedList") as! FollowedListViewController
         FollowedListVC.title = "FollowedList"
         controllerArray.append(FollowedListVC)
+        FollowedListVC.userListVC = UserListVC 
+        FollowedListVC.timelineVC = TimelineVC as! TimelineViewController
+        FollowedListVC.followListVC = FollowListVC as! FollowListViewController
         
         let EndPageVC = self.storyboard!.instantiateViewControllerWithIdentifier("EndPage")
         EndPageVC.title = "Settings"

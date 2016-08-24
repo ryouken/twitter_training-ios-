@@ -16,6 +16,7 @@ class FollowListViewController: UIViewController, UITableViewDataSource {
         getFollowList()
     }
     
+    // TODO: ゲットメソッド共通化
     func getFollowList() {
         Alamofire.request(.GET, "\(Constant.url)/json/follow/list")
             .responseJSON { response in

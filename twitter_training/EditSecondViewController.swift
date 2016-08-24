@@ -62,7 +62,7 @@ class EditSecondViewController: UIViewController, UITextFieldDelegate, UITextVie
                     }
             }
         } else {
-            
+            // TODO: Alert共通化
             let alert: UIAlertController = UIAlertController(title: "エラー", message: "指定の方式で入力して下さい。", preferredStyle:  UIAlertControllerStyle.Alert)
             
             let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{ action in
@@ -81,6 +81,7 @@ class EditSecondViewController: UIViewController, UITextFieldDelegate, UITextVie
         self.nameError.text = swiftCop.isGuilty(sender)?.verdict()
     }
     
+    // TODO: getメソッド共通化
     func getUser() {
         Alamofire.request(.GET, "\(Constant.url)/json/user/edit")
             .responseJSON { response in
@@ -98,6 +99,7 @@ class EditSecondViewController: UIViewController, UITextFieldDelegate, UITextVie
         }
     }
     
+    // TODO: キーボード処理共通化
     // 他のところをタップしたらキーボードを隠す
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //非表示にする。
@@ -124,12 +126,9 @@ class EditSecondViewController: UIViewController, UITextFieldDelegate, UITextVie
         getUser()
         
         // バリデーションの出力
-        swiftCop.addSuspect(Suspect(view:self.nameText, sentence: "2文字以上でご入力下さい。", trial: Trial.Length(.Minimum, 2)))
-        swiftCop.addSuspect(Suspect(view:self.nameText, sentence: "20文字以内でご入力下さい。", trial: Trial.Length(.Maximum, 20)))
+        swiftCop.minimum_2(nameText)
+        swiftCop.max_20(nameText)
         
-        // プロフィールのTextAreaをTextFieldと同じ設定に。
-        profileText.placeHolder = "プロフィールを入力して下さい(140文字以内)。"
-        profileText.placeHolderColor = UIColor(red:0.76, green:0.76, blue:0.76, alpha:1.0)
         profileText.layer.borderWidth = 0.5
         profileText.layer.cornerRadius = 5
     }

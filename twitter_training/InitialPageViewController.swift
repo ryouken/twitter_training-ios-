@@ -2,7 +2,7 @@ import UIKit
 
 class InitialPageViewController: UIViewController {
 
-    
+    // TODO: 画面遷移共通化
     @IBAction func registerButton(sender: AnyObject) {
         // 会員登録ページ(1)への画面遷移
         let storyboard: UIStoryboard = self.storyboard!

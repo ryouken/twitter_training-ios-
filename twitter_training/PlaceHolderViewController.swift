@@ -27,10 +27,9 @@ public class PlaceHolderTextView: UITextView {
             self.placeHolderLabel.numberOfLines   = 0
             self.placeHolderLabel.font            = self.font
             self.placeHolderLabel.backgroundColor = UIColor.clearColor()
-            self.placeHolderLabel.textColor       = self.placeHolderColor
+            self.placeHolderLabel.textColor       = UIColor(red:0.76, green:0.76, blue:0.76, alpha:1.0)
             self.placeHolderLabel.alpha           = 0
             self.placeHolderLabel.tag             = 1
-            
             self.placeHolderLabel.text = self.placeHolder as String
             self.placeHolderLabel.sizeToFit()
             self.addSubview(placeHolderLabel)

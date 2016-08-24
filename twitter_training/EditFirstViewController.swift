@@ -29,13 +29,14 @@ class EditFirstViewController: UIViewController, UITextFieldDelegate {
         let allGuiltiesMessage = swiftCop.allGuilties().map{ return $0.sentence}.joinWithSeparator("\n")
         
         if (allGuiltiesMessage.characters.count == 0) {
+            // TODO: 画面遷移共通化
             // 会員編集(2)への画面遷移
             let storyboard = self.storyboard!
             let nextVC = storyboard.instantiateViewControllerWithIdentifier("EditSecond") as! EditSecondViewController
             nextVC.editFirstVC = self
             self.presentViewController(nextVC, animated: true, completion: nil)
         } else {
-            
+            // TODO: alert共通化
             let alert: UIAlertController = UIAlertController(title: "エラー", message: "指定の方式で入力して下さい。", preferredStyle:  UIAlertControllerStyle.Alert)
             let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{ action in
             })
@@ -54,6 +55,7 @@ class EditFirstViewController: UIViewController, UITextFieldDelegate {
         self.passwordError.text = swiftCop.isGuilty(sender)?.verdict()
     }
     
+    // TODO: getMethod共通化
     func getUser() {
         Alamofire.request(.GET, "\(Constant.url)/json/user/edit")
             .responseJSON { response in
@@ -69,6 +71,7 @@ class EditFirstViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // TODO: キーボード処理共通化
     // 他のところをタップしたらキーボードを隠す
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //非表示にする。
@@ -94,9 +97,9 @@ class EditFirstViewController: UIViewController, UITextFieldDelegate {
         getUser()
         
         // バリデーションの出力
-        swiftCop.addSuspect(Suspect(view:self.emailText, sentence: "emailの形式でご入力下さい。", trial: Trial.Email))
-        swiftCop.addSuspect(Suspect(view:self.passwordText, sentence: "8文字以上でご入力下さい。", trial: Trial.Length(.Minimum, 8)))
-        swiftCop.addSuspect(Suspect(view:self.passwordText, sentence: "20文字以下でご入力下さい。", trial: Trial.Length(.Maximum, 20)))
+        swiftCop.email(emailText)
+        swiftCop.minimum_8(passwordText)
+        swiftCop.max_20(passwordText)
     }
 
     override func didReceiveMemoryWarning() {

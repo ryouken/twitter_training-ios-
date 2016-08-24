@@ -22,11 +22,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 print(json)
                 json.forEach {(_, json) in
                     if (json == "login_success") {
+                        // TODO: 画面遷移共通化
                         // メインページへの画面遷移
                         let storyboard = self.storyboard!
                         let nextVC = storyboard.instantiateViewControllerWithIdentifier("PageMenu") as! PageMenuViewController
                         self.presentViewController(nextVC, animated: true, completion: nil)
                     } else {
+                        // TODO: アラート共通化
                         let alert: UIAlertController = UIAlertController(title: "エラー", message: "入力情報が間違っています。", preferredStyle:  UIAlertControllerStyle.Alert)
                         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{ action in
                         })
@@ -37,6 +39,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
     }
     
+    // TODO: キーボード共通化
     // 他のところをタップしたらキーボードを隠す
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //非表示にする。
