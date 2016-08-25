@@ -4,7 +4,10 @@ import Alamofire
 import SwiftCop
 
 class EditSecondViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
-    var delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    var delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let alert = Alert()
+    let http = HTTPRequest()
     let swiftCop = SwiftCop()
     var editFirstVC: EditFirstViewController!
     var default_user_name: String!
@@ -14,6 +17,7 @@ class EditSecondViewController: UIViewController, UITextFieldDelegate, UITextVie
     @IBOutlet weak var profileText: PlaceHolderTextView!
     @IBOutlet weak var nameError: UILabel!
     
+    // 会員情報編集ページ(1)に戻る
     @IBAction func backButton(sender: AnyObject) {
         self.dismissViewControllerAnimated(false, completion: nil)
     }
@@ -23,80 +27,28 @@ class EditSecondViewController: UIViewController, UITextFieldDelegate, UITextVie
         let password = delegate.passwordText.text!
         let user_name = nameText.text!
         let profile_text = profileText.text!
-        
         let json: [String: AnyObject] = [
             "user_id"      : 0,
             "email"        : email,
             "password"     : password,
             "user_name"    : user_name,
             "profile_text" : profile_text]
-        
         validateAction(json)
     }
     
+    // バリデーションの結果で処理を分岐
     func validateAction(json: [String: AnyObject]) {
         let allGuiltiesMessage = swiftCop.allGuilties().map{ return $0.sentence}.joinWithSeparator("\n")
-        
         if (allGuiltiesMessage.characters.count == 0 && profileText.text.characters.count <= Constant.max) {
-            Alamofire.request(.PUT, "\(Constant.url)/json/user/update", parameters: json, encoding: .JSON)
-                .responseJSON { response in
-                    print(response.response) // URL response
-                    
-                    guard let object = response.result.value else {
-                        return
-                    }
-                    
-                    let json = JSON(object)
-                    print(json)
-                    
-                    json.forEach {(_, json) in
-                        if (json == "update_success") {
-                            // メインページへ画面遷移
-                            self.dismissViewControllerAnimated(false, completion: nil)
-                            self.editFirstVC.dismissViewControllerAnimated(false, completion: nil)
-                        } else {
-                            let alertLabel: UILabel = UILabel(frame: CGRectMake(0,0,200,50))
-                            alertLabel.text = "会員情報編集に失敗しました。"
-                            self.view.addSubview(alertLabel)
-                        }
-                    }
-            }
-        } else {
-            // TODO: Alert共通化
-            let alert: UIAlertController = UIAlertController(title: "エラー", message: "指定の方式で入力して下さい。", preferredStyle:  UIAlertControllerStyle.Alert)
-            
-            let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{ action in
-            })
-            
-            alert.addAction(defaultAction)
-            
-            presentViewController(alert, animated: true, completion: nil)
-            
+            http.updateUser(self, json: json)
+                    } else {
+             alert.validationError(self)
         }
     }
-
     
     // バリデーションメソッド
     @IBAction func validateEmail(sender: UITextField) {
         self.nameError.text = swiftCop.isGuilty(sender)?.verdict()
-    }
-    
-    // TODO: getメソッド共通化
-    func getUser() {
-        Alamofire.request(.GET, "\(Constant.url)/json/user/edit")
-            .responseJSON { response in
-                
-                guard let object = response.result.value else {
-                    return
-                }
-                
-                JSON(object).forEach { (_, user) in
-                    self.default_user_name = user["user_name"].string!
-                    self.default_profile_text = user["profile_text"].string!
-                    self.nameText.text = self.default_user_name
-                    self.profileText.text = self.default_profile_text
-                }
-        }
     }
     
     // TODO: キーボード処理共通化
@@ -115,15 +67,12 @@ class EditSecondViewController: UIViewController, UITextFieldDelegate, UITextVie
         textField.resignFirstResponder()
         return true
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         nameText.delegate = self
         profileText.delegate = self
-        
-        getUser()
+        http.getUser(self)
         
         // バリデーションの出力
         swiftCop.minimum_2(nameText)
@@ -133,7 +82,4 @@ class EditSecondViewController: UIViewController, UITextFieldDelegate, UITextVie
         profileText.layer.cornerRadius = 5
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 }

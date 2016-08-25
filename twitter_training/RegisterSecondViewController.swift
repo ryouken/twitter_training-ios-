@@ -4,7 +4,11 @@ import Alamofire
 import SwiftCop
 
 class RegisterSecondViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
-    var delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    var delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let scene = Scene()
+    let alert = Alert()
+    let http = HTTPRequest()
     let swiftCop = SwiftCop()
 
     @IBOutlet weak var nameText: UITextField!
@@ -16,70 +20,24 @@ class RegisterSecondViewController: UIViewController, UITextFieldDelegate, UITex
         let password = delegate.passwordText.text!
         let user_name = nameText.text!
         let profile_text = profileText.text!
-        
         let json: [String: AnyObject] = [
             "user_id"      : 0,
             "email"        : email,
             "password"     : password,
             "user_name"    : user_name,
             "profile_text" : profile_text]
-        
         validateAction(json)
     }
     
+    // バリデーションの結果で処理を分岐
     func validateAction(json: [String: AnyObject]) {
         let allGuiltiesMessage = swiftCop.allGuilties().map{ return $0.sentence}.joinWithSeparator("\n")
-        
         if (allGuiltiesMessage.characters.count == 0 && profileText.text.characters.count <= Constant.max) {
-            Alamofire.request(.POST, "\(Constant.url)/json/user/create", parameters: json, encoding: .JSON)
-                .responseJSON { response in
-                    print(response.response) // URL response
-                    
-                    guard let object = response.result.value else {
-                        // TODO: Alert共通化
-                        let alert: UIAlertController = UIAlertController(title: "エラー", message: "入力に問題があります。", preferredStyle:  UIAlertControllerStyle.Alert)
-                        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{ action in
-                        })
-                        alert.addAction(defaultAction)
-                        self.presentViewController(alert, animated: true, completion: nil)
-                        return
-                    }
-                    
-                    let json = JSON(object)
-                    print(json)
-                    
-                    json.forEach {(_, json) in
-                        if (response.result.isSuccess == true) {
-                            // TODO: 画面遷移共通化
-                            // ログインページへ画面遷移
-                            let storyboard = self.storyboard!
-                            let nextVC = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
-                            self.navigationController?.pushViewController(nextVC, animated: true)
-                        } else {
-                            // TODO: アラート共通化
-                            let alert: UIAlertController = UIAlertController(title: "エラー", message: "入力に問題があります。", preferredStyle:  UIAlertControllerStyle.Alert)
-                            let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{ action in
-                            })
-                            alert.addAction(defaultAction)
-                            self.presentViewController(alert, animated: true, completion: nil)
-                        }
-                    }
-            }
+            http.createUser(self, json: json)
         } else {
-            
-            // アラート共通化
-            let alert: UIAlertController = UIAlertController(title: "エラー", message: "指定の方式で入力して下さい。", preferredStyle:  UIAlertControllerStyle.Alert)
-            
-            let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{ action in
-            })
-            
-            alert.addAction(defaultAction)
-            
-            presentViewController(alert, animated: true, completion: nil)
-            
+            alert.validationError(self)
         }
     }
-
     
     // バリデーションメソッド
     @IBAction func validateEmail(sender: UITextField) {
@@ -105,7 +63,6 @@ class RegisterSecondViewController: UIViewController, UITextFieldDelegate, UITex
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         nameText.delegate = self
         profileText.delegate = self
         
@@ -119,8 +76,4 @@ class RegisterSecondViewController: UIViewController, UITextFieldDelegate, UITex
         profileText.layer.cornerRadius = 5
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    
-    }
 }

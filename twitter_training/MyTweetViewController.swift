@@ -2,7 +2,10 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
-class MyTweetViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MyTweetViewController: UIViewController {
+    let scene = Scene()
+    let alert = Alert()
+    let http = HTTPRequest()
     var pageMenu : CAPSPageMenu?
     var tweets: [[String: String?]] = []
     
@@ -14,39 +17,18 @@ class MyTweetViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableViewAutomaticDimension
-        getMyTweet()
+        http.getMyTweet(self)
     }
     
-    // getメソッド共通化
-    func getMyTweet() {
-        Alamofire.request(.GET, "\(Constant.url)/json/tweet/mylist")
-            .responseJSON { response in
-                print(response.response)
-                
-                guard let object = response.result.value else {
-                    return
-                }
-                
-                self.tweets.removeAll()
-                let json = JSON(object)
-                print(json)
-                json.forEach { (_, json) in
-                    json.forEach { (_, tweet) in
-                        let tweet: [String: String?] = [
-                            "tweet_id": tweet["tweet_id"].description,
-                            "tweet_text": tweet["tweet_text"].string
-                        ]
-                        self.tweets.append(tweet)
-                    }
-                }
-            self.tableView.reloadData()
-        }
-    }
-    
+}
+
+extension MyTweetViewController: UITableViewDataSource, UITableViewDelegate {
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweets.count
     }
     
+    // TODO: cellの書き方
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cell")
         let tweet = tweets[indexPath.row]
@@ -54,31 +36,14 @@ class MyTweetViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.textLabel?.font = UIFont(name: "Arial", size: 24)
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         let tweet = tweets[indexPath.row]
-        
-        let alert = UIAlertController(title: "このボケに対して", message: nil, preferredStyle:  UIAlertControllerStyle.Alert)
-        
-        let defaultActionShow = UIAlertAction(title: "ツッコミを見る", style: UIAlertActionStyle.Default, handler: { action in
-            let storyboard = self.storyboard!
-            let nextVC = storyboard.instantiateViewControllerWithIdentifier("ReplyList") as! ReplyListViewController
-            nextVC.tweetId = tweet["tweet_id"]!.flatMap{ Int($0) }
-            nextVC.tweetText = tweet["tweet_text"]!
-            self.presentViewController(nextVC, animated: true, completion: nil)
-        })
-        
-        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.Cancel, handler:{ action in
-        })
-        
-        alert.addAction(cancelAction)
-        alert.addAction(defaultActionShow)
-        
-        presentViewController(alert, animated: true, completion: nil)
+        let num = tweet["tweet_id"]!.flatMap{ Int($0) }
+        let text = tweet["tweet_text"]!
+        alert.replyAction(self, num: num, text: text)
     }
-
     
 }

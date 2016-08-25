@@ -2,16 +2,13 @@ import UIKit
 
 class PageMenuViewController: UIViewController {
     
+    let scene = Scene()
     var pageMenu: CAPSPageMenu?
     var myTweetVC: MyTweetViewController!
     
+    // ツイートページへの画面遷移
     @IBAction func tweetButton(sender: AnyObject) {
-        // TODO: 画面遷移共通化
-        // ツイートページの画面遷移
-        let storyboard = self.storyboard!
-        let nextVC = storyboard.instantiateViewControllerWithIdentifier("Tweet") as! TweetViewController
-        nextVC.myTweetVC = myTweetVC
-        self.presentViewController(nextVC, animated: true, completion: nil)
+        scene.tweetTransition(self, myTweetVC: myTweetVC)
     }
     
     override func viewDidLoad() {
@@ -62,13 +59,9 @@ class PageMenuViewController: UIViewController {
         // PageMenuのビューのサイズを設定
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0.0, 50.0, self.view.frame.width, self.view.frame.height), pageMenuOptions: parameters)
         
-        // PageMenuのビューを親のビューに追加
+        // PageMenuのビューをToolbarの後ろに追加
         self.view.addSubview(pageMenu!.view)
-        // PageMenuのビューをToolbarの後ろへ移動
         self.view.sendSubviewToBack(pageMenu!.view)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 }

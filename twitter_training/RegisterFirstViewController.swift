@@ -2,7 +2,11 @@ import UIKit
 import SwiftCop
 
 class RegisterFirstViewController: UIViewController, UITextFieldDelegate {
-    var delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    var delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let scene = Scene()
+    let alert = Alert()
+    let keyboard = Keyboard()
     let swiftCop = SwiftCop()
     
     @IBOutlet weak var emailText: UITextField!
@@ -13,32 +17,20 @@ class RegisterFirstViewController: UIViewController, UITextFieldDelegate {
     @IBAction func nextButton(sender: AnyObject) {
         self.delegate.emailText = emailText
         self.delegate.passwordText = passwordText
-        
         validateAction()
     }
     
-    // バリデーションのエラーを出す
+    // バリデーションの結果で処理を分岐
     func validateAction() {
         let allGuiltiesMessage = swiftCop.allGuilties().map{ return $0.sentence}.joinWithSeparator("\n")
-        
         if (allGuiltiesMessage.characters.count == 0) {
-            // TODO: 画面遷移共通化
             // 新規会員登録(2)への画面遷移
-            let storyboard = self.storyboard!
-            let nextVC = storyboard.instantiateViewControllerWithIdentifier("RegisterSecond") as! RegisterSecondViewController
-            self.navigationController?.pushViewController(nextVC, animated: true)
+            scene.navTransition(self, storyboardId: "RegisterSecond")
         } else {
-            // TODO: alert共通化
-            let alert: UIAlertController = UIAlertController(title: "エラー", message: "指定の方式で入力して下さい。", preferredStyle:  UIAlertControllerStyle.Alert)
-            let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{ action in
-            })
-            alert.addAction(defaultAction)
-            presentViewController(alert, animated: true, completion: nil)
-            
+            alert.validationError(self)
         }
     }
 
-    // TODO: バリデーション共通化
     // バリデーションメソッド
     @IBAction func validateEmail(sender: UITextField) {
         self.emailError.text = swiftCop.isGuilty(sender)?.verdict()
@@ -47,11 +39,9 @@ class RegisterFirstViewController: UIViewController, UITextFieldDelegate {
         self.passwordError.text = swiftCop.isGuilty(sender)?.verdict()
     }
     
-    
     // TODO: キーボード処理共通化
     // 他のところをタップしたらキーボードを隠す
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        //非表示にする。
         if(emailText.isFirstResponder()){
             emailText.resignFirstResponder()
         }
@@ -67,7 +57,6 @@ class RegisterFirstViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         emailText.delegate = self
         passwordText.delegate = self
         
@@ -75,10 +64,6 @@ class RegisterFirstViewController: UIViewController, UITextFieldDelegate {
         swiftCop.email(emailText)
         swiftCop.minimum_8(passwordText)
         swiftCop.max_20(passwordText)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 
 }

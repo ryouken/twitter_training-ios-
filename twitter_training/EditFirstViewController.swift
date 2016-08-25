@@ -4,7 +4,11 @@ import SwiftyJSON
 import Alamofire
 
 class EditFirstViewController: UIViewController, UITextFieldDelegate {
-    var delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    var delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let scene = Scene()
+    let alert = Alert()
+    let http = HTTPRequest()
     let swiftCop = SwiftCop()
     var email: String!
     
@@ -13,39 +17,27 @@ class EditFirstViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailError: UILabel!
     @IBOutlet weak var passwordError: UILabel!
     
+    // メインページに戻る
     @IBAction func backButton(sender: AnyObject) {
-        // メインページへの画面遷移
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func nextButton(sender: AnyObject) {
         self.delegate.emailText = emailText
         self.delegate.passwordText = passwordText
-        
         validateAction()
     }
     
+    // バリデーションの結果で処理を分岐
     func validateAction() {
         let allGuiltiesMessage = swiftCop.allGuilties().map{ return $0.sentence}.joinWithSeparator("\n")
-        
         if (allGuiltiesMessage.characters.count == 0) {
-            // TODO: 画面遷移共通化
             // 会員編集(2)への画面遷移
-            let storyboard = self.storyboard!
-            let nextVC = storyboard.instantiateViewControllerWithIdentifier("EditSecond") as! EditSecondViewController
-            nextVC.editFirstVC = self
-            self.presentViewController(nextVC, animated: true, completion: nil)
+            scene.editTransition(self)
         } else {
-            // TODO: alert共通化
-            let alert: UIAlertController = UIAlertController(title: "エラー", message: "指定の方式で入力して下さい。", preferredStyle:  UIAlertControllerStyle.Alert)
-            let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{ action in
-            })
-            alert.addAction(defaultAction)
-            presentViewController(alert, animated: true, completion: nil)
-            
+            alert.validationError(self)
         }
     }
-
     
     // バリデーションメソッド
     @IBAction func validateEmail(sender: UITextField) {
@@ -53,22 +45,6 @@ class EditFirstViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func validatePassword(sender: UITextField) {
         self.passwordError.text = swiftCop.isGuilty(sender)?.verdict()
-    }
-    
-    // TODO: getMethod共通化
-    func getUser() {
-        Alamofire.request(.GET, "\(Constant.url)/json/user/edit")
-            .responseJSON { response in
-                
-            guard let object = response.result.value else {
-                return
-            }
-            
-            JSON(object).forEach { (_, user) in
-                self.email = user["email"].string!
-                self.emailText.text = self.email
-            }
-        }
     }
     
     // TODO: キーボード処理共通化
@@ -88,13 +64,11 @@ class EditFirstViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         emailText.delegate = self
         passwordText.delegate = self
-        getUser()
+        http.getUser(self)
         
         // バリデーションの出力
         swiftCop.email(emailText)
@@ -102,7 +76,4 @@ class EditFirstViewController: UIViewController, UITextFieldDelegate {
         swiftCop.max_20(passwordText)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 }

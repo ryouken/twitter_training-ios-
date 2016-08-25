@@ -22,6 +22,10 @@
 		CB963B101D5C7EFD00A21C9F /* RegisterSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB963B0F1D5C7EFD00A21C9F /* RegisterSecondViewController.swift */; };
 		CB963B141D5C8E4300A21C9F /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB963B131D5C8E4300A21C9F /* UserListViewController.swift */; };
 		EB0CE4D81D6D958700C48E55 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CE4D71D6D958700C48E55 /* Validation.swift */; };
+		EB0CE4DD1D6E6E5B00C48E55 /* Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CE4DC1D6E6E5B00C48E55 /* Scenes.swift */; };
+		EB0CE4DF1D6E84B900C48E55 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CE4DE1D6E84B900C48E55 /* Alert.swift */; };
+		EB0CE4E11D6EAEA300C48E55 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CE4E01D6EAEA300C48E55 /* HTTPRequest.swift */; };
+		EB0CE4E31D6ECD4A00C48E55 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CE4E21D6ECD4A00C48E55 /* Keyboard.swift */; };
 		EB15B7F21D6AE754006DA13A /* ReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15B7F11D6AE754006DA13A /* ReplyViewController.swift */; };
 		EB15B7F41D6B1239006DA13A /* ReplyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15B7F31D6B1239006DA13A /* ReplyListViewController.swift */; };
 		EB74CB0E1D5DBAF5002AE80C /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB0D1D5DBAF5002AE80C /* TweetViewController.swift */; };
@@ -85,6 +89,10 @@
 		E23631C85EE999AB1242BD94 /* Pods-twitter_trainingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-twitter_trainingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-twitter_trainingTests/Pods-twitter_trainingTests.release.xcconfig"; sourceTree = "<group>"; };
 		E4E3163AAD5B1ABCB37FFA40 /* Pods_twitter_training.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_twitter_training.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0CE4D71D6D958700C48E55 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		EB0CE4DC1D6E6E5B00C48E55 /* Scenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenes.swift; sourceTree = "<group>"; };
+		EB0CE4DE1D6E84B900C48E55 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		EB0CE4E01D6EAEA300C48E55 /* HTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
+		EB0CE4E21D6ECD4A00C48E55 /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		EB15B7F11D6AE754006DA13A /* ReplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyViewController.swift; sourceTree = "<group>"; };
 		EB15B7F31D6B1239006DA13A /* ReplyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyListViewController.swift; sourceTree = "<group>"; };
 		EB74CB0D1D5DBAF5002AE80C /* TweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +246,10 @@
 				EB74CB1F1D61D769002AE80C /* CAPSPageMenu.swift */,
 				EB74CB2B1D642A31002AE80C /* Constant.swift */,
 				EB0CE4D71D6D958700C48E55 /* Validation.swift */,
+				EB0CE4DC1D6E6E5B00C48E55 /* Scenes.swift */,
+				EB0CE4DE1D6E84B900C48E55 /* Alert.swift */,
+				EB0CE4E01D6EAEA300C48E55 /* HTTPRequest.swift */,
+				EB0CE4E21D6ECD4A00C48E55 /* Keyboard.swift */,
 			);
 			name = Functions;
 			sourceTree = "<group>";
@@ -522,9 +534,11 @@
 				EB74CB0E1D5DBAF5002AE80C /* TweetViewController.swift in Sources */,
 				EB74CB1C1D61274F002AE80C /* ButtonCustom.swift in Sources */,
 				EB74CB1A1D5DDCA3002AE80C /* EditSecondViewController.swift in Sources */,
+				EB0CE4DF1D6E84B900C48E55 /* Alert.swift in Sources */,
 				EB74CB141D5DDBB3002AE80C /* FollowedListViewController.swift in Sources */,
 				EB74CB201D61D769002AE80C /* CAPSPageMenu.swift in Sources */,
 				EB74CB261D627F2E002AE80C /* EndPageViewController.swift in Sources */,
+				EB0CE4E11D6EAEA300C48E55 /* HTTPRequest.swift in Sources */,
 				EB0CE4D81D6D958700C48E55 /* Validation.swift in Sources */,
 				CB963B101D5C7EFD00A21C9F /* RegisterSecondViewController.swift in Sources */,
 				EB74CB181D5DDC98002AE80C /* EditFirstViewController.swift in Sources */,
@@ -532,9 +546,11 @@
 				EB74CB161D5DDC26002AE80C /* TimelineViewController.swift in Sources */,
 				EB15B7F41D6B1239006DA13A /* ReplyListViewController.swift in Sources */,
 				EB74CB121D5DDBA1002AE80C /* FollowListViewController.swift in Sources */,
+				EB0CE4E31D6ECD4A00C48E55 /* Keyboard.swift in Sources */,
 				EB74CB1E1D612F43002AE80C /* PlaceHolderViewController.swift in Sources */,
 				EB74CB2C1D642A31002AE80C /* Constant.swift in Sources */,
 				CB963ADC1D5C723A00A21C9F /* AppDelegate.swift in Sources */,
+				EB0CE4DD1D6E6E5B00C48E55 /* Scenes.swift in Sources */,
 				CB963B0A1D5C736B00A21C9F /* InitialPageViewController.swift in Sources */,
 				EB74CB221D61D7F1002AE80C /* PageMenuViewController.swift in Sources */,
 				EB15B7F21D6AE754006DA13A /* ReplyViewController.swift in Sources */,

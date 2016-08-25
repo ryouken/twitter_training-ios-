@@ -4,39 +4,19 @@ import Alamofire
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
+    let scene = Scene()
+    let alert = Alert()
+    let http = HTTPRequest()
+    
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     
+    // ログイン
     @IBAction func nextButton(sender: AnyObject) {
-        let email: String = emailText.text!
-        let password: String = passwordText.text!
+        let email = emailText.text!
+        let password = passwordText.text!
         let json = ["email": email, "password": password]
-        
-        Alamofire.request(.POST, "\(Constant.url)/json/user/authenticate", parameters: json, encoding: .JSON)
-            .responseJSON { response in
-                print(response.response) // URL response
-                guard let object = response.result.value else {
-                    return
-                }
-                let json = JSON(object)
-                print(json)
-                json.forEach {(_, json) in
-                    if (json == "login_success") {
-                        // TODO: 画面遷移共通化
-                        // メインページへの画面遷移
-                        let storyboard = self.storyboard!
-                        let nextVC = storyboard.instantiateViewControllerWithIdentifier("PageMenu") as! PageMenuViewController
-                        self.presentViewController(nextVC, animated: true, completion: nil)
-                    } else {
-                        // TODO: アラート共通化
-                        let alert: UIAlertController = UIAlertController(title: "エラー", message: "入力情報が間違っています。", preferredStyle:  UIAlertControllerStyle.Alert)
-                        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{ action in
-                        })
-                        alert.addAction(defaultAction)
-                        self.presentViewController(alert, animated: true, completion: nil)
-                    }
-                }
-            }
+        http.login(self, json: json)
     }
     
     // TODO: キーボード共通化
@@ -58,13 +38,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         emailText.delegate = self
         passwordText.delegate = self
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
   
 }
