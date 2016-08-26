@@ -16,26 +16,17 @@ class RegisterSecondViewController: UIViewController, UITextFieldDelegate, UITex
     @IBOutlet weak var nameError: UILabel!
     
     @IBAction func nextButton(sender: AnyObject) {
-        let email = delegate.emailText.text!
-        let password = delegate.passwordText.text!
-        let user_name = nameText.text!
-        let profile_text = profileText.text!
-        let json: [String: AnyObject] = [
-            "user_id"      : 0,
-            "email"        : email,
-            "password"     : password,
-            "user_name"    : user_name,
-            "profile_text" : profile_text]
-        validateAction(json)
+        let user = User(vc: self)
+        validateAction(user)
     }
     
     // バリデーションの結果で処理を分岐
-    func validateAction(json: [String: AnyObject]) {
+    func validateAction(user: User) {
         let allGuiltiesMessage = swiftCop.allGuilties().map{ return $0.sentence}.joinWithSeparator("\n")
         if (allGuiltiesMessage.characters.count == 0 && profileText.text.characters.count <= Constant.max) {
-            http.createUser(self, json: json)
+            http.createUser(self, user: user)
         } else {
-            alert.validationError(self)
+            alert.validationError(self, message: "指定した方式で入力して下さい")
         }
     }
     
@@ -44,7 +35,6 @@ class RegisterSecondViewController: UIViewController, UITextFieldDelegate, UITex
         self.nameError.text = swiftCop.isGuilty(sender)?.verdict()
     }
     
-    // TODO: キーボード共通化
     // 他のところをタップしたらキーボードを隠す
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //非表示にする。
@@ -70,7 +60,6 @@ class RegisterSecondViewController: UIViewController, UITextFieldDelegate, UITex
         swiftCop.minimum_2(nameText)
         swiftCop.max_20(nameText)
         
-        // プロフィールのTextAreaをTextFieldと同じ設定に。
         profileText.placeHolder = "ここはプロフィール欄です。好きな芸人について語るもよし、ボケるもよし、ご自由に。(140文字以内)"
         profileText.layer.borderWidth = 0.5
         profileText.layer.cornerRadius = 5

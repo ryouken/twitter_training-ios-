@@ -6,7 +6,6 @@ class RegisterFirstViewController: UIViewController, UITextFieldDelegate {
     var delegate = UIApplication.sharedApplication().delegate as! AppDelegate
     let scene = Scene()
     let alert = Alert()
-    let keyboard = Keyboard()
     let swiftCop = SwiftCop()
     
     @IBOutlet weak var emailText: UITextField!
@@ -27,7 +26,7 @@ class RegisterFirstViewController: UIViewController, UITextFieldDelegate {
             // 新規会員登録(2)への画面遷移
             scene.navTransition(self, storyboardId: "RegisterSecond")
         } else {
-            alert.validationError(self)
+            alert.validationError(self, message: "指定した方式で入力して下さい")
         }
     }
 
@@ -39,7 +38,6 @@ class RegisterFirstViewController: UIViewController, UITextFieldDelegate {
         self.passwordError.text = swiftCop.isGuilty(sender)?.verdict()
     }
     
-    // TODO: キーボード処理共通化
     // 他のところをタップしたらキーボードを隠す
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if(emailText.isFirstResponder()){

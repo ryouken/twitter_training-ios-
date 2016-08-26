@@ -15,18 +15,15 @@ class TweetViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func tweetButton(sender: AnyObject) {
-        let tweet_text = tweetText.text!
-        let length = tweetText.text.characters.count
-        let json: [String : AnyObject] = ["tweet_id": 0, "tweet_text": tweet_text]
         // 文字カウントで処理を分岐
+        let length = tweetText.text.characters.count
         if (length > Constant.min && length <= Constant.max) {
-            http.createTweet(self, json: json)
+            http.createTweet(self, tweet_text: tweetText.text!)
         } else {
             alert.textCountError(self)
         }
     }
     
-    // TODO: キーボード共通化
     // 他のところをタップしたらキーボードを隠す
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //非表示にする。

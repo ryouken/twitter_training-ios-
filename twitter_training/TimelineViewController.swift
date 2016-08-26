@@ -8,7 +8,7 @@ class TimelineViewController: UIViewController {
     let alert = Alert()
     let http = HTTPRequest()
     var pageMenu : CAPSPageMenu?
-    var tweets: [[String: String?]] = []
+    var tweets: [Timeline] = []
     
     @IBOutlet weak var tableView: UITableView?
     
@@ -33,9 +33,9 @@ extension TimelineViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cell")
         let tweet = tweets[indexPath.row]
-        cell.textLabel?.text = tweet["tweet_text"]!
+        cell.textLabel?.text = tweet.tweet_text
         cell.textLabel?.font = UIFont(name: "Arial", size: 24)
-        cell.detailTextLabel?.text = "@" + tweet["tweet_user_name"]!!
+        cell.detailTextLabel?.text = "@" + tweet.tweet_user_name
         cell.detailTextLabel?.font = UIFont(name: "Arial", size: 16)
         cell.textLabel?.numberOfLines=0
         cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
@@ -45,9 +45,7 @@ extension TimelineViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         let tweet = tweets[indexPath.row]
-        let num: Int? = tweet["tweet_id"]!.flatMap{ Int($0) }
-        let text: String? = tweet["tweet_text"]!
-        alert.replyAction(self, num: num, text: text)
+        alert.replyAction(self, tweet: tweet)
     }
 
 }

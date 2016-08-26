@@ -7,7 +7,7 @@ class MyTweetViewController: UIViewController {
     let alert = Alert()
     let http = HTTPRequest()
     var pageMenu : CAPSPageMenu?
-    var tweets: [[String: String?]] = []
+    var tweets: [Tweet] = []
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -32,7 +32,7 @@ extension MyTweetViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cell")
         let tweet = tweets[indexPath.row]
-        cell.textLabel?.text = tweet["tweet_text"]!
+        cell.textLabel?.text = tweet.tweet_text
         cell.textLabel?.font = UIFont(name: "Arial", size: 24)
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
@@ -41,9 +41,7 @@ extension MyTweetViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         let tweet = tweets[indexPath.row]
-        let num = tweet["tweet_id"]!.flatMap{ Int($0) }
-        let text = tweet["tweet_text"]!
-        alert.replyAction(self, num: num, text: text)
+        alert.replyAction(self, tweet: tweet)
     }
     
 }

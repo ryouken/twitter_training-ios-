@@ -7,7 +7,7 @@ class ReplyListViewController: UIViewController {
     let http = HTTPRequest()
     var tweetId: Int!
     var tweetText: String!
-    var replies: [[String: String?]] = []
+    var replies: [Reply] = []
 
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var tableView: UITableView!
@@ -18,12 +18,11 @@ class ReplyListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let json: [String: Int] = ["tweet_id": tweetId]
         textView.text = tweetText
         tableView.dataSource = self
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableViewAutomaticDimension
-        http.getReplies(self, json: json)
+        http.getReplies(self, tweet_id: tweetId)
     }
     
 }
@@ -38,9 +37,9 @@ extension ReplyListViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cell")
         let reply = replies[indexPath.row]
-        cell.textLabel?.text = reply["reply_text"]!
+        cell.textLabel?.text = reply.reply_text
         cell.textLabel?.font = UIFont(name: "Arial", size: 24)
-        cell.detailTextLabel?.text = "@" + reply["reply_user_name"]!!
+        cell.detailTextLabel?.text = "@" + reply.reply_user_name
         cell.detailTextLabel?.font = UIFont(name: "Arial", size: 16)
         cell.textLabel?.numberOfLines = 0
         cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping

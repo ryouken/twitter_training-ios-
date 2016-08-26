@@ -35,7 +35,7 @@ class EditFirstViewController: UIViewController, UITextFieldDelegate {
             // 会員編集(2)への画面遷移
             scene.editTransition(self)
         } else {
-            alert.validationError(self)
+            alert.validationError(self, message: "指定した方式で入力して下さい")
         }
     }
     
@@ -47,7 +47,6 @@ class EditFirstViewController: UIViewController, UITextFieldDelegate {
         self.passwordError.text = swiftCop.isGuilty(sender)?.verdict()
     }
     
-    // TODO: キーボード処理共通化
     // 他のところをタップしたらキーボードを隠す
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //非表示にする。

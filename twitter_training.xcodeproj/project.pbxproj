@@ -25,7 +25,7 @@
 		EB0CE4DD1D6E6E5B00C48E55 /* Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CE4DC1D6E6E5B00C48E55 /* Scenes.swift */; };
 		EB0CE4DF1D6E84B900C48E55 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CE4DE1D6E84B900C48E55 /* Alert.swift */; };
 		EB0CE4E11D6EAEA300C48E55 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CE4E01D6EAEA300C48E55 /* HTTPRequest.swift */; };
-		EB0CE4E31D6ECD4A00C48E55 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CE4E21D6ECD4A00C48E55 /* Keyboard.swift */; };
+		EB0CE4E61D6FFF4800C48E55 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0CE4E51D6FFF4800C48E55 /* JSON.swift */; };
 		EB15B7F21D6AE754006DA13A /* ReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15B7F11D6AE754006DA13A /* ReplyViewController.swift */; };
 		EB15B7F41D6B1239006DA13A /* ReplyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB15B7F31D6B1239006DA13A /* ReplyListViewController.swift */; };
 		EB74CB0E1D5DBAF5002AE80C /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74CB0D1D5DBAF5002AE80C /* TweetViewController.swift */; };
@@ -92,7 +92,7 @@
 		EB0CE4DC1D6E6E5B00C48E55 /* Scenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenes.swift; sourceTree = "<group>"; };
 		EB0CE4DE1D6E84B900C48E55 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		EB0CE4E01D6EAEA300C48E55 /* HTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
-		EB0CE4E21D6ECD4A00C48E55 /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		EB0CE4E51D6FFF4800C48E55 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		EB15B7F11D6AE754006DA13A /* ReplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyViewController.swift; sourceTree = "<group>"; };
 		EB15B7F31D6B1239006DA13A /* ReplyListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyListViewController.swift; sourceTree = "<group>"; };
 		EB74CB0D1D5DBAF5002AE80C /* TweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
@@ -241,15 +241,15 @@
 		EB0CE4DB1D6E6B8000C48E55 /* Functions */ = {
 			isa = PBXGroup;
 			children = (
+				EB0CE4DC1D6E6E5B00C48E55 /* Scenes.swift */,
+				EB0CE4DE1D6E84B900C48E55 /* Alert.swift */,
+				EB0CE4E01D6EAEA300C48E55 /* HTTPRequest.swift */,
+				EB0CE4D71D6D958700C48E55 /* Validation.swift */,
+				EB0CE4E51D6FFF4800C48E55 /* JSON.swift */,
 				EB74CB1B1D61274F002AE80C /* ButtonCustom.swift */,
 				EB74CB1D1D612F43002AE80C /* PlaceHolderViewController.swift */,
 				EB74CB1F1D61D769002AE80C /* CAPSPageMenu.swift */,
 				EB74CB2B1D642A31002AE80C /* Constant.swift */,
-				EB0CE4D71D6D958700C48E55 /* Validation.swift */,
-				EB0CE4DC1D6E6E5B00C48E55 /* Scenes.swift */,
-				EB0CE4DE1D6E84B900C48E55 /* Alert.swift */,
-				EB0CE4E01D6EAEA300C48E55 /* HTTPRequest.swift */,
-				EB0CE4E21D6ECD4A00C48E55 /* Keyboard.swift */,
 			);
 			name = Functions;
 			sourceTree = "<group>";
@@ -546,7 +546,7 @@
 				EB74CB161D5DDC26002AE80C /* TimelineViewController.swift in Sources */,
 				EB15B7F41D6B1239006DA13A /* ReplyListViewController.swift in Sources */,
 				EB74CB121D5DDBA1002AE80C /* FollowListViewController.swift in Sources */,
-				EB0CE4E31D6ECD4A00C48E55 /* Keyboard.swift in Sources */,
+				EB0CE4E61D6FFF4800C48E55 /* JSON.swift in Sources */,
 				EB74CB1E1D612F43002AE80C /* PlaceHolderViewController.swift in Sources */,
 				EB74CB2C1D642A31002AE80C /* Constant.swift in Sources */,
 				CB963ADC1D5C723A00A21C9F /* AppDelegate.swift in Sources */,

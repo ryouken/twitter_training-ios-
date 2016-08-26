@@ -13,16 +13,10 @@ class HTTPRequest{
                 vc.users.removeAll()
                 let json = JSON(object)
                 print(json)
-                json.forEach { (_, json) in
-                    json.forEach { (_, user) in
-                        let user: [String: String?] = [
-                            "user_id": user["user_id"].description,
-                            "user_name": user["user_name"].string,
-                            "profile_text": user["profile_text"].string
-                        ]
-                        vc.users.append(user)
-                    }
+                json["users"].forEach { (_, user) in
+                    vc.users.append(User.init(user: user))
                 }
+    //          vc.users = json["users"].map { (_, json) in User(user: json)}
             vc.tableView.reloadData()
         }
     }
@@ -37,13 +31,8 @@ class HTTPRequest{
                 vc.tweets.removeAll()
                 let json = JSON(object)
                 print(json)
-                json.forEach { (_, tweet) in
-                    let tweet: [String: String?] = [
-                        "tweet_id": tweet["tweet_id"].string,
-                        "tweet_user_name": tweet["tweet_user_name"].string,
-                        "tweet_text": tweet["tweet_text"].string
-                    ]
-                    vc.tweets.append(tweet)
+                json["timeline"].forEach { (_, tweet) in
+                    vc.tweets.append(Timeline(tweet: tweet))
                 }
             vc.tableView?.reloadData()
         }
@@ -58,20 +47,15 @@ class HTTPRequest{
                 vc.tweets.removeAll()
                 let json = JSON(object)
                 print(json)
-                json.forEach { (_, json) in
-                    json.forEach { (_, tweet) in
-                        let tweet: [String: String?] = [
-                            "tweet_id": tweet["tweet_id"].description,
-                            "tweet_text": tweet["tweet_text"].string
-                        ]
-                        vc.tweets.append(tweet)
-                    }
+                json["tweets"].forEach { (_, tweet) in
+                    vc.tweets.append(Tweet(tweet: tweet))
                 }
             vc.tableView?.reloadData()
         }
     }
     
-    func getReplies(vc: ReplyListViewController, json: [String: Int]) {
+    func getReplies(vc: ReplyListViewController, tweet_id: Int) {
+        let json: [String: Int] = ["tweet_id": tweet_id]
         Alamofire.request(.POST, "\(Constant.url)/json/reply/list", parameters: json, encoding: .JSON)
             .responseJSON { response in
                 guard let object = response.result.value else {
@@ -80,13 +64,8 @@ class HTTPRequest{
                 vc.replies.removeAll()
                 let json = JSON(object)
                 print(json)
-                json.forEach { (_, reply) in
-                    let reply: [String: String?] = [
-                        "reply_id": reply["reply_id"].string,
-                        "reply_user_name": reply["reply_user_name"].string,
-                        "reply_text": reply["reply_text"].string
-                    ]
-                    vc.replies.append(reply)
+                json["reply"].forEach { (_, reply) in
+                    vc.replies.append(Reply(reply: reply))
                 }
             vc.tableView.reloadData()
         }
@@ -100,15 +79,11 @@ class HTTPRequest{
                 guard let object = response.result.value else {
                     return
                 }
-                vc.follows.removeAll()
+                vc.users.removeAll()
                 let json = JSON(object)
                 print(json)
-                json.forEach { (_, follow) in
-                    let follow: [String: String?] = [
-                        "user_name": follow["user_name"].string,
-                        "profile_text": follow["profile_text"].string
-                    ]
-                    vc.follows.append(follow)
+                json["follow"].forEach { (_, user) in
+                    vc.users.append(Follow(user: user))
                 }
             vc.tableView?.reloadData()
         }
@@ -122,13 +97,8 @@ class HTTPRequest{
                 }
                 let json = JSON(object)
                 print(json)
-                json.forEach { (_, follow) in
-                    let follow: [String: String?] = [
-                        "user_id": follow["user_id"].description,
-                        "user_name": follow["user_name"].string,
-                        "profile_text": follow["profile_text"].string
-                    ]
-                    vc.follows.append(follow)
+                json["followed"].forEach { (_, user) in
+                    vc.users.append(Followed(user: user))
                 }
             vc.tableView.reloadData()
         }
@@ -156,7 +126,8 @@ class HTTPRequest{
         }
     }
     
-    func login(vc: LoginViewController, json:[String: String]) {
+    func login(vc: LoginViewController, user: Login) {
+        let json = ["email": user.email, "password": user.password]
         Alamofire.request(.POST, "\(Constant.url)/json/user/authenticate", parameters: json, encoding: .JSON)
             .responseJSON { response in
                 guard let object = response.result.value else {
@@ -176,7 +147,14 @@ class HTTPRequest{
 
     }
     
-    func createUser(vc: RegisterSecondViewController, json: [String: AnyObject]) {
+    func createUser(vc: RegisterSecondViewController, user: User) {
+        let json: [String: AnyObject] = [
+            "user_id"      : 0,
+            "email"        : user.email,
+            "password"     : user.password,
+            "user_name"    : user.user_name,
+            "profile_text" : user.profile_text ?? "" ]
+        
         Alamofire.request(.POST, "\(Constant.url)/json/user/create", parameters: json, encoding: .JSON)
             .responseJSON { response in
                 guard let object = response.result.value else {
@@ -196,6 +174,7 @@ class HTTPRequest{
         }
     }
     
+    // TODO: 型が違うだけ
     func getUser(vc: EditFirstViewController) {
         Alamofire.request(.GET, "\(Constant.url)/json/user/edit")
             .responseJSON { response in
@@ -221,7 +200,14 @@ class HTTPRequest{
         }
     }
     
-    func updateUser(vc: EditSecondViewController, json: [String: AnyObject]) {
+    func updateUser(vc: EditSecondViewController, user: User) {
+        let json: [String: AnyObject] = [
+            "user_id"      : 0,
+            "email"        : user.email,
+            "password"     : user.password,
+            "user_name"    : user.user_name,
+            "profile_text" : user.profile_text ?? "" ]
+        
         Alamofire.request(.PUT, "\(Constant.url)/json/user/update", parameters: json, encoding: .JSON)
             .responseJSON { response in
                 guard let object = response.result.value else {
@@ -241,7 +227,8 @@ class HTTPRequest{
         }
     }
     
-    func createTweet(vc: TweetViewController, json: [String: AnyObject]) {
+    func createTweet(vc: TweetViewController, tweet_text: String) {
+        let json: [String : AnyObject] = ["tweet_id": 0, "tweet_text": tweet_text]
         Alamofire.request(.POST, "\(Constant.url)/json/tweet/create", parameters: json, encoding: .JSON)
             .responseJSON { response in
                 guard let object = response.result.value else {
@@ -262,7 +249,8 @@ class HTTPRequest{
         }
     }
     
-    func createReply(vc: ReplyViewController, json: [String: AnyObject]) {
+    func createReply(vc: ReplyViewController, reply: ReplyCreate) {
+        let json: [String : AnyObject] = ["reply_id": 0, "tweet_id": reply.tweet_id, "reply_text": reply.reply_text]
         Alamofire.request(.POST, "\(Constant.url)/json/reply/create", parameters: json, encoding: .JSON)
             .responseJSON { response in
                 guard let object = response.result.value else {
@@ -283,7 +271,9 @@ class HTTPRequest{
         }
     }
     
-    func createFollow(vc: UserListViewController, json: [String: Int]) {
+    // TODO: 型が違うだけ
+    func createFollow(vc: UserListViewController, user: User) {
+        let json: [String : Int] = ["relation_id": 0, "followed_id": user.user_id]
         Alamofire.request(.POST, "\(Constant.url)/json/follow/create", parameters: json, encoding: .JSON)
             .responseJSON { response in
                 guard let object = response.result.value else {
@@ -302,7 +292,8 @@ class HTTPRequest{
             }
     }
     
-    func createFollow(vc: FollowedListViewController, json: [String: Int]) {
+    func createFollow(vc: FollowedListViewController, user: Followed) {
+        let json: [String: Int] = ["relation_id": 0, "followed_id": user.user_id]
         Alamofire.request(.POST, "\(Constant.url)/json/follow/create", parameters: json, encoding: .JSON)
             .responseJSON { response in
                 guard let object = response.result.value else {

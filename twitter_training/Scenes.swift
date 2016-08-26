@@ -29,18 +29,34 @@ class Scene {
         vc.presentViewController(nextVC, animated: true, completion: nil)
     }
     
-    func replyTransition(vc: UIViewController, num: Int?) {
+    // TODO: 型が違うだけ
+    func replyTransition(vc: UIViewController, tweet: Tweet) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyboard.instantiateViewControllerWithIdentifier("Reply") as! ReplyViewController
-        nextVC.tweetId = num!
+        nextVC.tweetId = tweet.tweet_id
         vc.presentViewController(nextVC, animated: true, completion: nil)
     }
     
-    func replyListTransition(vc: UIViewController, num: Int?, text: String?) {
+    func replyTransition(vc: UIViewController, tweet: Timeline) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = storyboard.instantiateViewControllerWithIdentifier("Reply") as! ReplyViewController
+        nextVC.tweetId = tweet.tweet_id
+        vc.presentViewController(nextVC, animated: true, completion: nil)
+    }
+    
+    func replyListTransition(vc: UIViewController, tweet: Tweet) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyboard.instantiateViewControllerWithIdentifier("ReplyList") as! ReplyListViewController
-        nextVC.tweetId = num!
-        nextVC.tweetText = text!
+        nextVC.tweetId = tweet.tweet_id
+        nextVC.tweetText = tweet.tweet_text
+        vc.presentViewController(nextVC, animated: true, completion: nil)
+    }
+    
+    func replyListTransition(vc: UIViewController, tweet: Timeline) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = storyboard.instantiateViewControllerWithIdentifier("ReplyList") as! ReplyListViewController
+        nextVC.tweetId = tweet.tweet_id
+        nextVC.tweetText = tweet.tweet_text
         vc.presentViewController(nextVC, animated: true, completion: nil)
     }
 }

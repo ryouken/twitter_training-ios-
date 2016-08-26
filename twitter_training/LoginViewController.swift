@@ -13,13 +13,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // ログイン
     @IBAction func nextButton(sender: AnyObject) {
-        let email = emailText.text!
-        let password = passwordText.text!
-        let json = ["email": email, "password": password]
-        http.login(self, json: json)
+        let user = Login(vc: self)
+        http.login(self, user: user)
     }
     
-    // TODO: キーボード共通化
     // 他のところをタップしたらキーボードを隠す
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //非表示にする。
